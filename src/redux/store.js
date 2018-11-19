@@ -3,12 +3,11 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { reducer as formReducer } from 'redux-form';
 import { composeWithDevTools } from 'redux-devtools-extension';
-//import reducer from './reducer';
 import trailReducer from './trailReducer';
 import authReducer from './authReducer';
 
 const rootReducer = combineReducers({
-    trails: trailReducer,
+    trail: trailReducer,
     auth: authReducer,
     form: formReducer
 })

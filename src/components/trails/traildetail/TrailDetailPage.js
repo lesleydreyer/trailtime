@@ -4,34 +4,21 @@ import { connect } from 'react-redux';
 import TrailDetailComments from './TrailDetailComments';
 import TrailDetailCalendar from './TrailDetailCalendar';
 import TrailDetailInfo from './TrailDetailInfo';
-/*
-const mapStateToProps = (state, ownProps) => {
-    const trailId = ownProps.match.params.id;
-    let trail = {};
-    if (trailId && state.trails.length > 0) {
-        trail = state.trails.filter(trail => trail.id === trailId)[0]//brings back an array of 1 item
-    }
-    return {
-        trail
-    }
-}*/
 
-const mapStateToProps = (state, ownProps) => {
-    //console.log('traildetail', state.trails.trails);
-    //console.log('traildetial', ownProps);
-    const trailId = ownProps.match.params.id;
-    let trail = {};
-    if (trailId && state.trails.trails.length > 0) {
-        trail = state.trails.trails.filter(trail => trail.id === trailId)[0]//brings back an array of 1 item
-    }
+
+const mapStateToProps = (state) => {
     return {
-        trail
+        trail: state.trail.details
     }
 }
 
 
 const TrailDetailPage = ({ trail }) => {
-    console.log(trail);
+    // onFormSubmit = values => {
+    //    console.log('comments submitted');
+    //};
+    //            <TrailDetailComments onSubmit={this.onFormSubmit}/>
+
     return (
         <main role="main">
             <TrailDetailInfo trail={trail} />

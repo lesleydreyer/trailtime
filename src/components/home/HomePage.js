@@ -1,8 +1,15 @@
 import React from 'react';
 import './index.css';
 import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const HomePage = ({ history }) => {
+const HomePage = (props) => {
+    const { history, isLoggedIn } = props;
+    if (isLoggedIn) {
+        return <Redirect to="/trails"></Redirect>
+    }
+
     return (
         <React.Fragment>
             <div className='bg'>
@@ -24,4 +31,8 @@ const HomePage = ({ history }) => {
     )
 }
 
-export default HomePage;
+const mapStateToProps = state => ({
+    isLoggedIn: state.auth.isLoggedIn
+});
+
+export default connect(mapStateToProps)(HomePage);

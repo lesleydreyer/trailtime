@@ -8,6 +8,10 @@ import fourpeaks from '../traildetail/fourpeaks.jpg'
 //{/*src={trail.images[0]}*/}<img src={fourpeaks} />
 
 class TrailDetailInfo extends React.Component {
+    onTrailClick(value) {
+        console.log(value)
+    }
+
     render() {
         const { trail, deleteTrail } = this.props;
         return (
@@ -18,7 +22,7 @@ class TrailDetailInfo extends React.Component {
                 <p>{trail.trailDescription}
                 </p>
                 <Link to={`/edit/${trail.id}`}><button>EDIT TRAIL INFO</button></Link>&nbsp;&nbsp;
-            <button onClick={(trail.id)}>UPLOAD PICS</button>&nbsp;&nbsp;
+            <button onClick={() => this.onTrailClick(trail.id)}>UPLOAD PICS</button>&nbsp;&nbsp;
             <button>DELETE TRAIL</button>
             </React.Fragment >
         );

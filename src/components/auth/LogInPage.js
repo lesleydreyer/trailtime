@@ -14,7 +14,7 @@ class LogInPage extends React.Component {
     }
     render() {
         return (
-            <LogInForm onSubmit={this.login/*bind up top with =()=> instead of this.login.bind(this)*/} />
+            <LogInForm onSubmit={this.login/*bound up top with =()=> instead of this.login.bind(this)*/} />
         )
     }
 }

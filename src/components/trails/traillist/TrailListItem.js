@@ -5,13 +5,12 @@ import './index.css';
 class TrailListItem extends Component {
     render() {
         const { trail, deleteTrail } = this.props;
-        //console.log('TrailListItem trial', trail)
         return (
             <React.Fragment>
                 <img src={fourpeaks} className="width20" />
                 <h3>{trail.trailName}</h3>
                 <p>{trail.trailLocation} | {trail.trailRating}</p>
-                <Link deleteTrail={deleteTrail} to={`/detail/${trail.id}`}>View trail details > </Link>
+                <Link to={`/detail/${trail.id}`}>View trail details > </Link>
                 <hr />
             </React.Fragment>
         );

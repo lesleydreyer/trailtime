@@ -1,61 +1,5 @@
-/*
-import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import './index.css';
-import LoggedIn from './loggedinoutoptions/loggedin';
-import LoggedOut from './loggedinoutoptions/loggedout';
-class Navbar extends React.Component {
-    state = {
-        loggedIn: false
-    }
-    handleLogIn = () => {
-        this.setState({
-            loggedIn: true
-        });
-    }
-    handleLogOut = () => {
-        this.setState({
-            loggedIn: false
-        });
-        //this.history.push('/detail');
-    }
-    render() {
-        const { loggedIn } = this.state;
-        return (
-            <div >
-                <ul>
-                    <li>
-                        <NavLink className="trailtime" to="/">TRAIL TIME!</NavLink>
-                    </li>
-                    <li>
-                        {loggedIn ? <LoggedIn logout={this.handleLogOut} /> : <LoggedOut login={this.handleLogIn} />}
-                    </li>
-                    <li>
-                        <NavLink className="navlink" to="/trails">View Trails</NavLink>
-                    </li>
-                    <li>
-                        <NavLink className="navlink" to="/create">Create Trail</NavLink>
-                    </li>
-                </ul>
-
-            </div>
-
-        )
-    }
-}
-
-const mapStateToProps = state => {
-    //return {state.loggedIn}
-}
-
-export default connect(mapStateToProps)(Navbar);
-
-*/
-
-
-
 import React from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './index.css';
 import { connect } from "react-redux";
 
@@ -113,4 +57,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default withRouter(connect(mapStateToProps)(NavBar));
+export default connect(mapStateToProps)(NavBar);

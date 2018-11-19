@@ -1,12 +1,7 @@
 import { CREATE_TRAIL, UPDATE_TRAIL, DELETE_TRAIL } from './trailConstants';
-//import { createReducer } from '../components/app/common/utils/createReducer';
-
-//const initialState = {
-//    items: []
-//};
 
 const initialState = {
-    trails: [{
+    list: [{
         id: '1',
         trailName: 'Last Dollar Road',
         trailRating: 'Easy',
@@ -51,7 +46,23 @@ const initialState = {
             date: 'Aug 1',
             attendees: ['Bob', 'Mary', 'Dave']
         }]
-    }]
+    }],
+    details: {
+        id: '1',
+        trailName: 'Last Dollar Road',
+        trailRating: 'Easy',
+        trailLocation: 'Colorado',
+        trailDescription: 'Last Dollar Road is a 13.1 mile trail that ascends from Telluride, CO to Ridgeway. The 2-3 hour trail features beautiful wild flowers, jagged mountain peaks, aspens, a grassy field, and blue skies. It is good for all skill levels. The trail is best used from June until November.',
+        images: [
+            '../../public/images/12694690_10153928768077292_5453131960020696297_o.jpg',
+            '../../public/images/12928355_10154091416557292_4916283250721400428_n.jpg',
+            '../../public/images/12694690_10153928768077292_5453131960020696297_o.jpg'],
+        creator: 'Bob',
+        events: [{
+            date: 'Aug 1',
+            attendees: ['Bob', 'Mary', 'Dave']
+        }]
+    }
 };
 /*
     auth: {
@@ -59,12 +70,13 @@ const initialState = {
     jwt: null,
     name: null
 }*/
-//////////////////////////
+
+
 export default function reducer(state = initialState, action) {
     console.log('ACTION', action);
-    if (action.type === CREATE_TRAIL) {
+    /*if (action.type === CREATE_TRAIL) {
         return Object.assign({}, state, {
-            trails: [...state.trails, {
+            list: [...state.trail, {
                 id: action.trailId,
                 trailName: action.trailName,
                 trailRating: action.trailRating,
@@ -79,7 +91,7 @@ export default function reducer(state = initialState, action) {
     else if (action.type === UPDATE_TRAIL) {
         console.log('UPDATE action', action)
         return Object.assign({}, state, {
-            trails: [state.trails.map(trail =>
+            list: [state.trail.map(trail =>
                 trail.id === action.trail.id ? action.trail : trail
             )]
         });
@@ -88,8 +100,8 @@ export default function reducer(state = initialState, action) {
     else if (action.type === DELETE_TRAIL) {
         console.log('delete action', action)
         return Object.assign({}, state, {
-            trails: [state.trails.filter(trail => trail.id !== action.trail.id)]
+            list: [state.trail.filter(trail => trail.id !== action.trail.id)]
         });
-    }
+    }*/
     return state;
 };
