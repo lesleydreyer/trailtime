@@ -14,7 +14,7 @@ const HomePage = (props) => {
         <React.Fragment>
             <div className='bg'>
                 <header role="banner">
-                    <img src={logo} />
+                    <img src={logo} alt="logo" />
                     <div className="row">
                     </div>
                 </header>

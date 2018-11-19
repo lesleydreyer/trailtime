@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 
 //const TrailEditForm = ({ trail }) => {
 const TrailEditForm = (props) => {
-    const { handleSubmit, load, pristine, reset, submitting } = props
-
     return (
         <form id='trail-edit-form' onSubmit={props.handleSubmit}>
             <label htmlFor="trailName">Trail Name</label> <br />

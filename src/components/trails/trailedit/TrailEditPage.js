@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TrailEditForm from './TrailEditForm';
-import { createTrail, updateTrail } from '../../../redux/actions';
-//import cuid from 'cuid';
 
 
 const mapStateToProps = (state, ownProps) => ({

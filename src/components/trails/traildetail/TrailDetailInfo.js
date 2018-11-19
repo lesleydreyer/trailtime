@@ -13,11 +13,15 @@ class TrailDetailInfo extends React.Component {
     }
 
     render() {
-        const { trail, deleteTrail } = this.props;
+        const { trail } = this.props;//{ trail, deleteTrail }
         return (
             <React.Fragment>
-                <div><img className="heroPic" src={fourpeaks} /></div>
-                <img className="width20" src={fourpeaks} /><img className="width20" src={fourpeaks} /><img className="width20" src={fourpeaks} />
+                <div>
+                    <img className="heroPic" src={fourpeaks} alt='trailpic' />
+                </div>
+                <img className="width20" src={fourpeaks} alt='trailpic' />
+                <img className="width20" src={fourpeaks} alt='trailpic' />
+                <img className="width20" src={fourpeaks} alt='trailpic' />
                 <h2>{trail.trailName}</h2>
                 <p>{trail.trailDescription}
                 </p>
@@ -25,7 +29,7 @@ class TrailDetailInfo extends React.Component {
             <button onClick={() => this.onTrailClick(trail.id)}>UPLOAD PICS</button>&nbsp;&nbsp;
             <button>DELETE TRAIL</button>
             </React.Fragment >
-        );
+        )
     }
 }//onClick={deleteTrail(trail.id)}
 
