@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TrailListItem from './TrailListItem2';
+import TrailListItem from './TrailListItem';
 
 class TrailList extends Component {
     render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TrailCreateForm from './TrailCreateForm2';
+import TrailCreateForm from './TrailCreateForm';
 import cuid from 'cuid';
 
 class TrailCreatePage extends React.Component {
