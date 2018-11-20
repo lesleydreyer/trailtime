@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import NavBar from './navbar/NavBar';
+import NavigationBar from './navigationbar/NavigationBar';
 import HomePage from './home/HomePage';
 import SignUpPage from './auth/SignUpPage';
 import LogInPage from './auth/LogInPage';
@@ -20,7 +20,7 @@ class App extends Component {
           </Switch>
           <Route path="/(.+)" render={() => ( //regular expression so navbar isn't on home page above
             <div>
-              <NavBar />
+              <NavigationBar />
               <div className="main">
                 <Switch>
                   <Route path="/login" component={LogInPage} />

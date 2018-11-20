@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './index.css';
 import { connect } from "react-redux";
 
-class NavBar extends React.Component {
+class NavigationBar extends React.Component {
     logout() {
         this.props.dispatch({
             type: 'LOGOUT_SUCCESS'
@@ -57,4 +57,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps)(NavigationBar);
