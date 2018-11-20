@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TrailEditForm from './TrailEditForm';
+import TrailEditForm from './TrailEditForm2';
 
 
 const mapStateToProps = (state, ownProps) => ({

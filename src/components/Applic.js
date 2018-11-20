@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import NavigationBar from './navigationbar/NavigationBar';
-import HomePage from './home/HomePage';
+import HomePage from './home/HomePage2';
 import SignUpPage from './auth/SignUpPage';
 import LogInPage from './auth/LogInPage';
-import TrailCreatePage from './trails/trailcreate/TrailCreatePage';
-import TrailDetailPage from './trails/traildetail/TrailDetailPage';
-import TrailEditPage from './trails/trailedit/TrailEditPage';
-import TrailDashboard from './trails/traildashboard/TrailDashboard';
+import TrailCreatePage from './trails/trailcreate/TrailCreatePage2';
+import TrailDetailPage from './trails/traildetail/TrailDetailPage2';
+import TrailEditPage from './trails/trailedit/TrailEditPage2';
+import TrailDashboard from './trails/traildashboard/TrailDashboard2';
 
 class App extends Component {
   render() {

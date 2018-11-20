@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import TrailList from '../traillist/TrailList';
+import TrailList from '../traillist/TrailList2';
 import { deleteTrail } from '../../../redux/actions'
 
 const mapStateToProps = (state) => ({

@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import TrailCommentsForm from './TrailCommentsForm';
+import TrailCommentsForm from './TrailCommentsForm2';
 //import { connect } from 'react-redux';
 
 const TrailDetailComments = () => {

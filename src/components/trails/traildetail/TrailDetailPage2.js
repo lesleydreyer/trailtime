@@ -1,9 +1,9 @@
 import React from 'react';
 import './index.css';
 import { connect } from 'react-redux';
-import TrailDetailComments from './TrailDetailComments';
-import TrailDetailCalendar from './TrailDetailCalendar';
-import TrailDetailInfo from './TrailDetailInfo';
+import TrailDetailComments from './TrailDetailComments2';
+import TrailDetailCalendar from './TrailDetailCalendar2';
+import TrailDetailInfo from './TrailDetailInfo2';
 
 
 const mapStateToProps = (state) => {
