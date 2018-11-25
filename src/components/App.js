@@ -13,7 +13,7 @@ import TrailImagePage from './trails/trailimages/TrailImagePage';
 import Cloudinary from './zzzOldCloudinary/CloudinaryWidget';
 import Gallery from './zzzOldCloudinary/Gallery';
 import Carousel from './zzzOldCarousel/AliceCarousel'
-import FileInput from './zzzOldCloudinary/youtub';
+import FileInput from './zzzOldCloudinary/FileInput';
 class App extends Component {
   render() {
     return (

@@ -1,11 +1,16 @@
 import React from 'react';
 import SignUpForm from './SignUpForm';
-
+import { connect } from "react-redux";
+import { signUp } from "./authActions";
 class SignUpPage extends React.Component {
 
     signup = (values) => {
-        alert(`User ${values.username} created. Redirecting login...`);
-        this.props.history.push('/login');
+        this.props.signUp(values).then(createdUser => {
+            alert(`User ${createdUser.username} created. Redirecting login...`);
+            this.props.history.push('/login');
+        })
+        //alert(`User ${values.username} created. Redirecting login...`);
+        //this.props.history.push('/login');
     }
     render() {
         return (
@@ -14,4 +19,8 @@ class SignUpPage extends React.Component {
     }
 }
 
-export default SignUpPage;
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = { signUp };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
