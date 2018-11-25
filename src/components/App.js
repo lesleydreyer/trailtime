@@ -13,7 +13,7 @@ import TrailImagePage from './trails/trailimages/TrailImagePage';
 import Cloudinary from './zzzOldCloudinary/CloudinaryWidget';
 import Gallery from './zzzOldCloudinary/Gallery';
 import Carousel from './zzzOldCarousel/AliceCarousel'
-import Youtub from './zzzOldCloudinary/youtub';
+import FileInput from './zzzOldCloudinary/youtub';
 class App extends Component {
   render() {
     return (
@@ -37,7 +37,7 @@ class App extends Component {
                   {/**below are just things played around with trying to get cloudinary and image displays to work */}
                   <Route path="/cloud" component={Cloudinary} />
                   <Route path="/gallery" component={Gallery} />
-                  <Route path="/youtub" component={Youtub} />
+                  <Route path="/fileinput" component={FileInput} />
                   <Route path="/alice" component={Carousel} />
                 </Switch>
               </div>

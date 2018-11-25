@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class Youtub extends React.Component {
+class FileInput extends React.Component {
     state = {
         selectedFile: null
     }
@@ -10,6 +10,15 @@ class Youtub extends React.Component {
             selectedFile: event.target.files[0]
         })
     }
+    /*fetch('http://localhost:8000/:trailid/images', {
+        method: 'POST',
+        body: fd,
+    }).then((response) => {
+        response.json().then((body) => {
+            this.setState({ imageURL: `http://localhost:8000/:trailid/images/${body.file}` });
+        });
+    });*/
+
     fileUploadHandler = () => {
         const fd = new FormData();
         fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
@@ -33,4 +42,4 @@ class Youtub extends React.Component {
     }
 }
 
-export default Youtub;
+export default FileInput;
