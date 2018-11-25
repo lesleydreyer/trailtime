@@ -9,7 +9,9 @@ import TrailCreatePage from './trails/trailcreate/TrailCreatePage';
 import TrailDetailPage from './trails/traildetail/TrailDetailPage';
 import TrailEditPage from './trails/trailedit/TrailEditPage';
 import TrailDashboard from './trails/traildashboard/TrailDashboard';
-
+import TrailImagePage from './trails/trailimages/TrailImagePage';
+import Cloudinary from './trails/trailimages/CloudinaryWidget';
+import Main from './zzzOldCloudinary/Gallery'
 class App extends Component {
   render() {
     return (
@@ -28,7 +30,10 @@ class App extends Component {
                   <Route path="/create" component={TrailCreatePage} />
                   <Route path="/detail/:id" component={TrailDetailPage} />
                   <Route path="/edit/:id" component={TrailEditPage} />
+                  <Route path="/images/:id" component={TrailImagePage} />
                   <Route path="/trails" component={TrailDashboard} />
+                  <Route path="/cloud" component={Cloudinary} />
+                  <Route path="/gallery" component={Main} />
                 </Switch>
               </div>
             </div>

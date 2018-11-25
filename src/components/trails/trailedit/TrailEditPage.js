@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TrailEditForm from './TrailEditForm';
 
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     trail: state.trail.details
 });
 //const TrailEditPage = ({ trail }) => {

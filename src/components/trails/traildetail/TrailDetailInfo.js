@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
-import fourpeaks from '../traildetail/fourpeaks.jpg'
+import fourpeaks from '../traildetail/fourpeaks.jpg';
 //import TrailImages from './TrailImages';
 //import TrailImages from '../traildetail/TrailImages';
 //import Gallery from '../traildetail/AliceCarousel'
@@ -23,14 +23,14 @@ class TrailDetailInfo extends React.Component {
                 <img className="width20" src={fourpeaks} alt='trailpic' />
                 <img className="width20" src={fourpeaks} alt='trailpic' />
                 <h2>{trail.trailName}</h2>
-                <p>{trail.trailDescription}
-                </p>
+                <p>{trail.trailDescription}</p>
                 <Link to={`/edit/${trail.id}`}><button>EDIT TRAIL INFO</button></Link>&nbsp;&nbsp;
-            <button onClick={() => this.onTrailClick(trail.id)}>UPLOAD PICS</button>&nbsp;&nbsp;
+                <Link to={`/images/${trail.id}`}><button>UPLOAD PICTURES</button></Link>&nbsp;&nbsp;
             <button>DELETE TRAIL</button>
             </React.Fragment >
         )
     }
 }//onClick={deleteTrail(trail.id)}
+//<button onClick={() => this.onTrailClick(trail.id)}>UPLOAD PICS</button>&nbsp;&nbsp;
 
 export default TrailDetailInfo;
