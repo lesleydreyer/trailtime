@@ -13,7 +13,7 @@ class Youtub extends React.Component {
     fileUploadHandler = () => {
         const fd = new FormData();
         fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
-        axios.post('url to post', fd, {
+        axios.post('https://api.cloudinary.com/v1_1/dskazcbzu/upload/image', fd, {
             onUploadProgress: progressEvent => {
                 console.log('Upload Progress ' + Math.round(progressEvent.loaded / progressEvent.total) * 100 + '%')
             }
@@ -26,7 +26,7 @@ class Youtub extends React.Component {
     render() {
         return (
             <div>
-                <input type="file" onChange={this.fileSelectedHandler} />
+                <input type="file" onChange={this.fileSelectedHandler} multiple />
                 <button onClick={this.fileUploadHandler}>Upload</button>
             </div>
         )

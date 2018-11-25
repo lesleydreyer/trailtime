@@ -12,6 +12,7 @@ class TrailImagePage extends React.Component {
             <div>
                 <h3>Upload Your Pictures</h3>
                 <ImageApp />
+                <a href="../../zzzOldCloudinary/cloudinary.html">upload with widget</a>
             </div>
         )
     }

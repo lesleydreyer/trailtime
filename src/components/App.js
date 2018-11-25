@@ -10,8 +10,10 @@ import TrailDetailPage from './trails/traildetail/TrailDetailPage';
 import TrailEditPage from './trails/trailedit/TrailEditPage';
 import TrailDashboard from './trails/traildashboard/TrailDashboard';
 import TrailImagePage from './trails/trailimages/TrailImagePage';
-import Cloudinary from './trails/trailimages/CloudinaryWidget';
-import Main from './zzzOldCloudinary/Gallery'
+import Cloudinary from './zzzOldCloudinary/CloudinaryWidget';
+import Gallery from './zzzOldCloudinary/Gallery';
+import Carousel from './zzzOldCarousel/AliceCarousel'
+import Youtub from './zzzOldCloudinary/youtub';
 class App extends Component {
   render() {
     return (
@@ -32,8 +34,11 @@ class App extends Component {
                   <Route path="/edit/:id" component={TrailEditPage} />
                   <Route path="/images/:id" component={TrailImagePage} />
                   <Route path="/trails" component={TrailDashboard} />
+                  {/**below are just things played around with trying to get cloudinary and image displays to work */}
                   <Route path="/cloud" component={Cloudinary} />
-                  <Route path="/gallery" component={Main} />
+                  <Route path="/gallery" component={Gallery} />
+                  <Route path="/youtub" component={Youtub} />
+                  <Route path="/alice" component={Carousel} />
                 </Switch>
               </div>
             </div>

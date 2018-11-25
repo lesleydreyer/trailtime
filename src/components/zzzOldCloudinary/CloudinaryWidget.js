@@ -12,6 +12,7 @@ class Cloudinary extends React.Component {
     }
 }
 export default Cloudinary;
+
 /* 
                 // Or for more advanced usage:
                 // import {CloudinaryContext, Transformation} from 'cloudinary-react';
