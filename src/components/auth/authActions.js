@@ -1,6 +1,8 @@
 import { FAKE_USER, FAKE_JWT, FAKE_LOGIN_DATA } from "./authFakeData";
-
-const API = "https://jsonplaceholder.typicode.com";
+import { API } from '../../config';
+import { normalizeResponseErrors } from './utils';
+import { SubmissionError } from 'redux-form';
+//FAKE API for testing before backend is ready - const API = "https://jsonplaceholder.typicode.com";
 
 export const SET_AUTH_DATA = "SET_AUTH_DATA";
 export const setAuthData = authData => ({
@@ -35,27 +37,24 @@ const signUpFailureAction = error => ({
 
 export const signUp = user => dispatch => {
     dispatch(signUpAction());
-    return fetch(`${API}/users`, {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
+    return (
+        fetch(`${API}/user`, {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
             }
-            return res.json();
         })
-        .then(signUpData => {
-            // TODO: Remove when Server Side is ready
-            dispatch(signUpSuccessAction(FAKE_USER));
-            return FAKE_USER;
-        })
-        .catch(err => {
-            dispatch(signUpFailureAction(err));
-        });
+            .then(res => normalizeResponseErrors(res))
+            .then(signUpData => {
+                // TODO: Remove when Server Side is ready
+                dispatch(signUpSuccessAction(signUpData));
+                return signUpData;
+            })
+            .catch(err => {
+                dispatch(signUpFailureAction(err));
+            })
+    );
 };
 
 export const LOG_IN_REQUEST = "LOG_IN";
@@ -73,27 +72,31 @@ const logInFailureAction = error => ({
     error
 });
 
+
 export const logIn = user => dispatch => {
     dispatch(logInAction());
-    return fetch(`${API}/users`, {
-        method: "POST",
-        body: JSON.stringify(user),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    })
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
+    return (
+        fetch(`${API}/auth/login`, {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
             }
-            return res.json();
         })
-        .then(loginData => {
-            // TODO: Remove when Server Side is ready
-            dispatch(logInSuccessAction(FAKE_LOGIN_DATA));
-            return FAKE_LOGIN_DATA;
-        })
-        .catch(err => {
-            dispatch(logInFailureAction(err));
-        });
+            .then(res => normalizeResponseErrors(res))
+            .then(loginData => {
+                dispatch(logInSuccessAction(loginData));
+                return loginData;
+            })
+            .catch(err => {
+                const { code } = err;
+                const message =
+                    code === 401
+                        ? 'Incorrect username or password'
+                        : 'Unable to login, please try again';
+                dispatch(logInFailureAction(message));
+            })
+    );
 };
+
+

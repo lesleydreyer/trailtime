@@ -2,13 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './index.css';
 import { connect } from "react-redux";
+import { withRouter } from 'react-router-dom';
+
+import { logout } from '../auth/authActions';
 
 class NavBar extends React.Component {
     logout() {
-        this.props.dispatch({
-            type: 'LOGOUT_SUCCESS'
-        });
+        this.props.dispatch(logout());
         alert('Now Logged Out');
+        this.props.history.push("/login")
     }
     render() {
         //LOGGED OUT LINKS (this ? true do this : false do this so not logged in means logged out, logged in means null and gets the authlink instead)
@@ -57,4 +59,6 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps)(NavBar);
+export default withRouter(
+    connect(mapStateToProps)(NavBar)
+);

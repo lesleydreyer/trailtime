@@ -20,5 +20,5 @@ const TrailCreateForm = (props) => {
 }
 
 export default reduxForm({
-    form: 'trailcreate'
+    form: 'createtrail'
 })(TrailCreateForm)

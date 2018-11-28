@@ -86,6 +86,7 @@ const createTrailFailureAction = error => ({
 export const createTrail = payload => dispatch => {
     const { trail, jwt } = payload;
     dispatch(createTrailAction({ trail, jwt }));
+    console.log('reached createtrail action')
     return fetch(`${API}/trails/`, {
         method: "POST",
         body: JSON.stringify(trail),

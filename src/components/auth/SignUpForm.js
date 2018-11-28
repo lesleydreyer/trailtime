@@ -16,9 +16,6 @@ const SignUpForm = (props) => {
                 <label htmlFor="email">Email</label><br />
                 <Field component='input' name="email"
                     placeholder="Enter your email" required /><br />
-                <label htmlFor="phone">Phone</label><br />
-                <Field component='input' name="phone"
-                    placeholder="Enter your phone number" required /><br />
                 <button type="submit">Sign up</button><br /><br />
                 <Link to="/login">Already have an account? Log in here > </Link>
             </fieldset>

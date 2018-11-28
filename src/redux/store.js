@@ -3,6 +3,9 @@ import thunk from 'redux-thunk';
 import logger from 'redux-logger';
 import { reducer as formReducer } from 'redux-form';
 import { composeWithDevTools } from 'redux-devtools-extension';
+
+import { loadAuthData } from '../components/auth/localStorage';
+import { setAuthData } from '../components/auth/authActions';
 import trailReducer from './trailReducer';
 import authReducer from './authReducer';
 
@@ -12,8 +15,15 @@ const rootReducer = combineReducers({
     form: formReducer
 })
 
-const store = createStore(rootReducer, composeWithDevTools(
+const STORE = createStore(rootReducer, composeWithDevTools(
     applyMiddleware(logger, thunk)
 ));
 
-export default store;
+const authData = loadAuthData();
+if (authData) {
+    STORE.dispatch(
+        setAuthData(authData)
+    );
+}
+
+export default STORE;

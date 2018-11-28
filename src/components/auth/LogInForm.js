@@ -20,4 +20,5 @@ const LogInForm = (props) => {
 
 export default reduxForm({
     form: 'login'
+    //NEED? onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
 })(LogInForm)
