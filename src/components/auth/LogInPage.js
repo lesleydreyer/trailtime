@@ -3,21 +3,24 @@ import { connect } from 'react-redux';
 import LogInForm from './LogInForm';
 import { logIn } from "./authActions";
 import { SubmissionError } from 'redux-form';
+import { logInFailureAction } from './authActions';
+
 class LogInPage extends React.Component {
     login(values) {
         this.props.dispatch(
             logIn(values)
-        ).catch(error => {
-            if (error) {
-                return console.log('error!!');
-            }
-            //throw new SubmissionError(error)
-            //} else { console.log('aaa') }
-        })
+        )
             .then(authData => {
-                console.log(authData);
-                alert(`User ${authData.user.username} login success!`);
-                this.props.history.push('/trails');
+                if (authData === undefined) {
+                    //this.props.dispatch(logInFailureAction);
+                    //alert(`${logInFailureAction}`);
+                    //console.log(autherr);
+                    alert('login failed');
+                }
+                else {
+                    alert(`User ${authData.user.username} login success!`);
+                    this.props.history.push('/trails');
+                }
             })
     }
 
@@ -43,6 +46,8 @@ class LogInPage extends React.Component {
 
 const mapStateToProps = state => ({
     //error: state.auth.error
+    //error: SubmissionError
+    autherr: state.auth.error
 });
 
 export default connect(mapStateToProps)(LogInPage);
