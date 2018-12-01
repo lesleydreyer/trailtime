@@ -4,7 +4,7 @@ const initialState = {
     loading: false,
     error: null,
     trailList: [],
-    trailetails: null
+    trailDetails: null
 };
 
 export default function reducer(state = initialState, action) {

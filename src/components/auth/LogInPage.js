@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LogInForm from './LogInForm';
 import { logIn } from "./authActions";
-import { SubmissionError } from 'redux-form';
-import { logInFailureAction } from './authActions';
 
 class LogInPage extends React.Component {
     login(values) {
@@ -12,10 +10,7 @@ class LogInPage extends React.Component {
         )
             .then(authData => {
                 if (authData === undefined) {
-                    //this.props.dispatch(logInFailureAction);
-                    //alert(`${logInFailureAction}`);
-                    //console.log(autherr);
-                    alert('login failed');
+                    alert(this.props.error);
                 }
                 else {
                     alert(`User ${authData.user.username} login success!`);
@@ -32,7 +27,6 @@ class LogInPage extends React.Component {
                     {this.props.error}
                 </div>
             );
-            console.log('THISPROPS', this.props);
         }
 
         return (
@@ -45,9 +39,7 @@ class LogInPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    //error: state.auth.error
-    //error: SubmissionError
-    autherr: state.auth.error
+    error: state.auth.error
 });
 
 export default connect(mapStateToProps)(LogInPage);

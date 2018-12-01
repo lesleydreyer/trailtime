@@ -11,7 +11,6 @@ class TrailList extends Component {
                         <TrailListItem
                             key={trail.id}
                             trail={trail}
-                            deleteTrail={deleteTrail}
                         />)}
             </div>
         );

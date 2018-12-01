@@ -1,29 +1,50 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TrailEditForm from './TrailEditForm';
+import { getTrail, updateTrail } from '../trailActions';
+import AuthProtectedComponent from '../../auth/authProtectedComponent';
 
 
-const mapStateToProps = (state) => ({
-    trail: state.trail.details
-});
-//const TrailEditPage = ({ trail }) => {
 class TrailEditPage extends React.Component {
-    onFormSubmit = (values) => {
-        this.props.dispatch({
-            type: 'UPDATE_TRAIL',
-            trailName: values.trailName,
-            trailRating: values.trailRating,
-            trailLocation: values.trailLocation,
+
+    componentDidMount() {
+        this.props.getTrail({
+            jwt: this.props.jwt,
+            trailId: this.props.match.params.id
         });
-        alert(`${values.trailName} ${values.trailRating} ${values.trailLocation} trail updated`);
-        this.props.history.push('/trails');
     }
+
+    onEditTrailFormSubmit = (values) => {
+        /* instead of this --- this.props.dispatch(updateTrail({ --- can skip the dispatch if you do mapToDispatchToProps at bottom
+        */
+        this.props
+            .updateTrail({
+                trailId: this.props.match.params.id,
+                trail: values,
+                jwt: this.props.jwt
+            })
+            .then(() => {
+                alert(`Trail updated.`);
+                this.props.history.push('/trails');
+            })
+    }
+
 
     render() {
         return (
-            <TrailEditForm onSubmit={this.onFormSubmit} />
+            <TrailEditForm onSubmit={this.onEditTrailFormSubmit} />//or can do this.onEditTrailFormSubmit.bind(this) and up top onEditTrailFormSubmit(values)
         )
     }
 }
 
-export default connect(mapStateToProps)(TrailEditPage);
+const mapStateToProps = (state) => ({
+    jwt: state.auth.jwt,
+    trail: state.trail.trailDetails
+});
+const mapDispatchToProps = {
+    getTrail,
+    updateTrail
+};
+
+export default AuthProtectedComponent(
+    connect(mapStateToProps, mapDispatchToProps)(TrailEditPage));

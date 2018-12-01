@@ -4,34 +4,49 @@ import { connect } from 'react-redux';
 import TrailDetailComments from './TrailDetailComments';
 import TrailDetailCalendar from './TrailDetailCalendar';
 import TrailDetailInfo from './TrailDetailInfo';
+import { getTrail, deleteTrail, getTrails } from '../trailActions';
 
+class TrailDetailPage extends React.Component {
 
-const mapStateToProps = (state) => {
-    return {
-        trail: state.trail.details
+    componentDidMount() {
+        this.props.dispatch(
+            getTrail({
+                jwt: this.props.jwt,
+                trailId: this.props.match.params.id
+            })
+        ).then(() => {
+            alert('Fetched Succesfully!');
+        });
+    }
+
+    render() {
+        const { trail } = this.props;
+        if (!trail) {
+            return <p>Loading ...</p>;
+        }
+
+        return (
+            <main role="main">
+                <h1>Hello world!</h1>
+                <TrailDetailInfo trail={trail} />
+                <br />
+                <hr />
+                <TrailDetailCalendar />
+                <br />
+                <hr />
+                <TrailDetailComments />
+                <br />
+                <br />
+            </main>
+        );
     }
 }
 
-
-const TrailDetailPage = ({ trail }) => {
-    // onFormSubmit = values => {
-    //    console.log('comments submitted');
-    //};
-    //            <TrailDetailComments onSubmit={this.onFormSubmit}/>
-
-    return (
-        <main role="main">
-            <TrailDetailInfo trail={trail} />
-            <br />
-            <hr />
-            <TrailDetailCalendar />
-            <br />
-            <hr />
-            <TrailDetailComments />
-            <br />
-            <br />
-        </main>
-    );
+const mapStateToProps = (state) => {
+    return {
+        jwt: state.auth.jwt,
+        trail: state.trail.trailDetails
+    }
 }
 
 export default connect(mapStateToProps)(TrailDetailPage);

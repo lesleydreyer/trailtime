@@ -1,7 +1,7 @@
-import { FAKE_USER, FAKE_JWT, FAKE_LOGIN_DATA } from "./authFakeData";
 import { API } from '../../config';
 import { normalizeResponseErrors } from './utils';
-import { SubmissionError } from 'redux-form';
+//I think this is another way to do errors - import { SubmissionError } from 'redux-form';
+//FAKE DATA for testing - import { FAKE_USER, FAKE_JWT, FAKE_LOGIN_DATA } from "./authFakeData";
 //FAKE API for testing before backend is ready - const API = "https://jsonplaceholder.typicode.com";
 
 export const SET_AUTH_DATA = "SET_AUTH_DATA";
@@ -47,7 +47,6 @@ export const signUp = user => dispatch => {
         })
             .then(res => normalizeResponseErrors(res))
             .then(signUpData => {
-                // TODO: Remove when Server Side is ready
                 dispatch(signUpSuccessAction(signUpData));
                 return signUpData;
             })

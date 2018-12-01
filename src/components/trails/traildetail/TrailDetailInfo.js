@@ -2,18 +2,30 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
 import fourpeaks from '../traildetail/fourpeaks.jpg';
+import { deleteTrail } from '../trailActions';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 //import TrailImages from './TrailImages';
 //import TrailImages from '../traildetail/TrailImages';
 //import Gallery from '../traildetail/AliceCarousel'
 //{/*src={trail.images[0]}*/}<img src={fourpeaks} />
 
 class TrailDetailInfo extends React.Component {
-    onTrailClick(value) {
-        console.log(value)
+    deleteTrail = trailId => {
+        this.props.dispatch(
+            deleteTrail({
+                jwt: this.props.jwt,
+                trailId
+            }))
+            .then(() => {
+                alert('Trail deleted.');
+                this.props.history.push('/trails');
+            });
     }
 
+
     render() {
-        const { trail } = this.props;//{ trail, deleteTrail }
+        const { trail } = this.props;
         return (
             <React.Fragment>
                 <div>
@@ -24,13 +36,24 @@ class TrailDetailInfo extends React.Component {
                 <img className="width20" src={fourpeaks} alt='trailpic' />
                 <h2>{trail.trailName}</h2>
                 <p>{trail.trailDescription}</p>
+                <p>{trail.trailLocation}</p>
+                <p>{trail.trailRating}</p>
                 <Link to={`/edit/${trail.id}`}><button>EDIT TRAIL INFO</button></Link>&nbsp;&nbsp;
                 <Link to={`/images/${trail.id}`}><button>UPLOAD PICTURES</button></Link>&nbsp;&nbsp;
-            <button>DELETE TRAIL</button>
+            <button onClick={() => this.deleteTrail(trail.id)}>DELETE TRAIL</button>
             </React.Fragment >
         )
     }
-}//onClick={deleteTrail(trail.id)}
-//<button onClick={() => this.onTrailClick(trail.id)}>UPLOAD PICS</button>&nbsp;&nbsp;
+}
 
-export default TrailDetailInfo;
+
+const mapStateToProps = (state) => {
+    return {
+        jwt: state.auth.jwt,
+        trail: state.trail.trailDetails
+    }
+}
+
+export default withRouter(
+    connect(mapStateToProps)(TrailDetailInfo)
+);

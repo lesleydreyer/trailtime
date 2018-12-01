@@ -1,36 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TrailCreateForm from './TrailCreateForm';
-import { createTrail } from '../trailActions'
-import cuid from 'cuid';
-
+import { createTrail } from '../trailActions';
+import AuthProtectedComponent from '../../auth/authProtectedComponent';
 class TrailCreatePage extends React.Component {
 
-    createTrailFormSubmit = (values) => {
+    onCreateTrailFormSubmit = (values) => {
         this.props.dispatch(
-            createTrail(values))
+            createTrail({ trail: values, jwt: this.props.jwt }))
             .then(createdTrail => {
                 alert(`Trail ${createdTrail.trailName} created.`);
                 this.props.history.push('/trails');
             })
-    }        /*this.props.dispatch({
-            type: 'CREATE_TRAIL',
-            trailName: values.trailName,
-            trailRating: values.trailRating,
-            trailLocation: values.trailLocation,
-            trailId: cuid()
-        });
-        alert(`${values.trailName} ${values.trailRating} ${values.trailLocation} trail created`);
-        this.props.history.push('/trails');
-}*/
+    }
 
     render() {
         return (
-            <TrailCreateForm onSubmit={this.createTrailFormSubmit} />
+            <TrailCreateForm onSubmit={this.onCreateTrailFormSubmit} />
         )
     }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    jwt: state.auth.jwt
+});
 
-export default connect(mapStateToProps)(TrailCreatePage);
+export default AuthProtectedComponent(connect(mapStateToProps)(TrailCreatePage));

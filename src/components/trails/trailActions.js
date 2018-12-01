@@ -1,6 +1,6 @@
 import { TRAIL_LIST, TRAIL_DETAILS } from "./trailsFakeData";
-
-const API = "https://jsonplaceholder.typicode.com";
+import { API } from '../../config';
+//FAKE API to use before regular one is ready is const API = "https://jsonplaceholder.typicode.com";
 
 export const GET_TRAILS_REQUEST = "GET_TRAILS";
 const getTrailsAction = () => ({
@@ -19,7 +19,15 @@ const getTrailsFailureAction = error => ({
 
 export const getTrails = payload => dispatch => {
     dispatch(getTrailsAction());
-    return fetch(`${API}/trails`)
+    return fetch(`${API}/trail`,
+        {
+            method: "GET",
+            headers: {
+                Accept: 'application/json',
+                "Content-type": "application/json",
+                Authorization: `Bearer ${payload.jwt}`
+            }
+        })
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -27,8 +35,7 @@ export const getTrails = payload => dispatch => {
             return res.json();
         })
         .then(trails => {
-            // TODO: Remove when Server Side is ready
-            dispatch(getTrailsSuccessAction(TRAIL_LIST));
+            dispatch(getTrailsSuccessAction(trails));
         })
         .catch(err => {
             dispatch(getTrailsFailureAction(err));
@@ -51,8 +58,18 @@ const getTrailFailureAction = error => ({
 });
 
 export const getTrail = payload => dispatch => {
+    const { jwt, trailId } = payload;
     dispatch(getTrailAction());
-    return fetch(`${API}/trails/1`)
+    return fetch(`${API}/trail/${trailId}`,
+        {
+            method: "GET",
+            headers: {
+                Accept: 'application/json',
+                "Content-type": "application/json",
+                Authorization: `Bearer ${jwt}`
+            }
+        }
+    )
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);
@@ -60,8 +77,7 @@ export const getTrail = payload => dispatch => {
             return res.json();
         })
         .then(trail => {
-            // TODO: Remove once Server Side is complete.
-            dispatch(getTrailSuccessAction(TRAIL_DETAILS));
+            dispatch(getTrailSuccessAction(trail));
         })
         .catch(err => {
             console.error(err);
@@ -86,12 +102,13 @@ const createTrailFailureAction = error => ({
 export const createTrail = payload => dispatch => {
     const { trail, jwt } = payload;
     dispatch(createTrailAction({ trail, jwt }));
-    console.log('reached createtrail action')
-    return fetch(`${API}/trails/`, {
+    return fetch(`${API}/trail/`, {
         method: "POST",
         body: JSON.stringify(trail),
         headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            Accept: 'application/json',
+            "Content-type": "application/json",
+            Authorization: `Bearer ${jwt}`
         }
     })
         .then(res => {
@@ -130,11 +147,13 @@ const updateTrailFailureAction = error => ({
 export const updateTrail = payload => dispatch => {
     const { trailId, trail, jwt } = payload;
     dispatch(updateTrailAction());
-    return fetch(`${API}/trails/1`, {
+    return fetch(`${API}/trail/${trailId}`, {
         method: "PUT",
         body: JSON.stringify(trail),
         headers: {
-            "Content-type": "application/json; charset=UTF-8"
+            Accept: 'application/json',
+            "Content-type": "application/json",
+            Authorization: `Bearer ${jwt}`
         }
     })
         .then(res => {
@@ -144,10 +163,9 @@ export const updateTrail = payload => dispatch => {
             return res.json();
         })
         .then(trail => {
-            // TODO: remove once server side is done
-            dispatch(updateTrailSuccessAction(TRAIL_DETAILS));
+            dispatch(updateTrailSuccessAction(trail));
             dispatch(getTrails());
-            return TRAIL_DETAILS;
+            return trail;
         })
         .catch(err => {
             console.error(err);
@@ -173,7 +191,14 @@ const deleteTrailFailureAction = error => ({
 export const deleteTrail = payload => dispatch => {
     const { trailId, jwt } = payload;
     dispatch(deleteTrailAction());
-    return fetch(`${API}/trails/${trailId}`, { method: "DELETE" })
+    return fetch(`${API}/trail/${trailId}`, {
+        method: "DELETE",
+        headers: {
+            Accept: 'application/json',
+            "Content-type": "application/json",
+            Authorization: `Bearer ${jwt}`
+        }
+    })
         .then(res => {
             if (!res.ok) {
                 return Promise.reject(res.statusText);

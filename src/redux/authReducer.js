@@ -43,13 +43,14 @@ export default function reducer(state = initialState, action) {
         action.type === actions.LOG_IN_SUCCESS ||
         action.type === actions.SET_AUTH_DATA
     ) {
+        //debugger;
         saveAuthData(action.authData);
         return {
             ...state,
             authenticating: false,
             isLoggedIn: true,
             user: action.authData.user,
-            jwt: action.authData.jwt
+            jwt: action.authData.authToken
         };
     } else if (
         action.type === actions.LOGOUT ||

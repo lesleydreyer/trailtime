@@ -1,21 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import TrailList from '../traillist/TrailList';
-import { deleteTrail } from '../../../redux/actions'
-
-const mapStateToProps = (state) => ({
-    trails: state.trail.list
-});
-
-const actions = {
-    deleteTrail
-}
-
+import { getTrails } from '../trailActions';
 
 class TrailDashboard extends Component {
-
-    handleDeleteTrail = (trailId) => () => {
-        this.props.deleteTrail(trailId);
+    componentDidMount() {
+        this.props.getTrails({
+            jwt: this.props.jwt
+        });
     }
 
     render() {
@@ -24,10 +16,10 @@ class TrailDashboard extends Component {
             <div>
                 <h1>TRAILS</h1><hr />
                 <TrailList
-                    deleteTrail={this.handleDeleteTrail}
                     trails=
                     {trails
-                        /*trails is what you call in TrailList, 
+                        /*
+                        trails is what you call in TrailList, 
                         trailslist comes from above fake data*/}
                 /><br /><br />
             </div>
@@ -35,5 +27,14 @@ class TrailDashboard extends Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    trails: state.trail.trailList,
+    jwt: state.auth.jwt
+});
 
-export default connect(mapStateToProps, actions)(TrailDashboard);
+const mapDispatchToProps = {
+    getTrails
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(TrailDashboard);
