@@ -1,135 +1,99 @@
-import React, { Component } from 'react'
-import Notifications, { notify } from 'react-notify-toast'
-import Spinner from './Spinner'
-import Images from './Images'
-import Buttons from './Buttons'
-import WakeUp from './WakeUp'
-import { API_URL } from './config'
-
-
-const toastColor = {
-    background: '#505050',
-    text: '#fff'
-}
-
-export default class App extends Component {
-
-    state = {
-        loading: true,
-        uploading: false,
-        images: []
+import React, { Component } from 'react';
+import Images from './ImagePreview';
+import UploadForm from './UploadForm';
+import { connect } from 'react-redux';
+import { API } from '../../../../config';
+import './ImageApp.css';
+import { getTrail } from '../../trailActions';
+import AuthProtectedComponent from '../../../auth/authProtectedComponent';
+import { withRouter } from 'react-router-dom';
+class ImageApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            uploading: false,
+            error: null,
+            images: []
+        };
     }
 
     componentDidMount() {
-        fetch(`${API_URL}/wake-up`)
-            .then(res => {
-                if (res.ok) {
-                    return this.setState({ loading: false })
-                }
-                const msg = 'Something went wrong with Heroku'
-                notify.show(msg, 'custom', 2000, toastColor);
-                //this.toast(msg, 'custom', 2000, toastColor)
+        this.props.dispatch(
+            getTrail({
+                jwt: this.props.jwt,
+                trailId: this.props.match.params.id
             })
+        ).then(() => {
+            fetch(`${API}/images/${this.props.match.params.id}/wake-up`)
+                .then(res => {
+                    if (res.ok) {
+                        this.setState({ loading: false });
+                    } else {
+                        this.onServerError(res);
+                    }
+                })
+                .catch(err => this.onServerError(err));
+        });
     }
 
-    toast = notify.createShowQueue()
+    onServerError(err) {
+        this.setState({
+            loading: false,
+            error: err
+        });
+        console.error('[ERROR]', err);
+    }
 
-    onChange = e => {
-        const errs = []
-        const files = Array.from(e.target.files)
-
-        if (files.length > 3) {
-            const msg = 'Only 3 images can be uploaded at a time'
-            return notify.show(msg, 'custom', 2000, toastColor) //this.toast(msg, 'custom', 2000, toastColor)
-        }
-
-        const formData = new FormData()
-        const types = ['image/png', 'image/jpeg', 'image/gif']
-
-        files.forEach((file, i) => {
-
-            if (types.every(type => file.type !== type)) {
-                errs.push(`'${file.type}' is not a supported format`)
-            }
-
-            if (file.size > 150000) {
-                errs.push(`'${file.name}' is too large, please pick a smaller file`)
-            }
-
-            //formData.append(i, file)
-        })
-
-        if (errs.length) {
-            return errs.forEach(err => notify.show(err, 'custom', 2000, toastColor))
-            //this.toast(err, 'custom', 2000, toastColor))
-        }
-
-        this.setState({ uploading: true })
-
-        fetch(`${API_URL}/image-upload`, {
+    handleFormSubmit = formData => {
+        this.setState({ uploading: true });
+        console.log('trail', this.props.trail)
+        fetch(`${API}/images/${this.props.match.params.id}/image-upload`, {
             method: 'POST',
             body: formData
         })
             .then(res => {
                 if (!res.ok) {
-                    throw res
+                    return Promise.reject(res);
                 }
-                return res.json()
+                return res.json();
             })
             .then(images => {
                 this.setState({
                     uploading: false,
                     images
-                })
+                });
             })
             .catch(err => {
-                err.json().then(e => {
-                    notify.show(e.message, 'custom', 2000, toastColor)//this.toast(e.message, 'custom', 2000, toastColor)
-                    this.setState({ uploading: false })
-                })
-            })
-    }
+                this.onServerError(err);
+            });
+    };
 
-    filter = id => {
-        return this.state.images.filter(image => image.public_id !== id)
-    }
+    renderContent() {
+        const { loading, uploading, error, images } = this.state;
 
-    removeImage = id => {
-        this.setState({ images: this.filter(id) })
-    }
-
-    onError = id => {
-        notify.show('Oops, something went wrong', 'custom', 2000, toastColor)//this.toast('Oops, something went wrong', 'custom', 2000, toastColor)
-        this.setState({ images: this.filter(id) })
+        if (loading) {
+            return <h1>Loading ...</h1>;
+        } else if (uploading) {
+            return <h1>Uploading ...</h1>;
+        } else if (error) {
+            return <h1>There was a problem with the server.</h1>;
+        } else if (images && images.length > 0) {
+            return <Images images={images} />;
+        } else {
+            return <UploadForm handleFormSubmit={this.handleFormSubmit.bind(this)} />;
+        }
     }
 
     render() {
-        const { loading, uploading, images } = this.state
-
-        const content = () => {
-            switch (true) {
-                case loading:
-                    return <WakeUp />
-                case uploading:
-                    return <Spinner />
-                case images.length > 0:
-                    return <Images
-                        images={images}
-                        removeImage={this.removeImage}
-                        onError={this.onError}
-                    />
-                default:
-                    return <Buttons onChange={this.onChange} />
-            }
-        }
-
-        return (
-            <div className='container'>
-                <Notifications />
-                <div className='buttons'>
-                    {content()}
-                </div>
-            </div>
-        )
+        return <div className="container">{this.renderContent()}</div>;
     }
 }
+
+const mapStateToProps = (state) => ({
+    jwt: state.auth.jwt,
+    trail: state.trail.trailDetails
+});
+
+export default withRouter(AuthProtectedComponent(
+    connect(mapStateToProps)(ImageApp)));

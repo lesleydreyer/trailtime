@@ -1,6 +1,6 @@
-import { TRAIL_LIST, TRAIL_DETAILS } from "./trailsFakeData";
 import { API } from '../../config';
 //FAKE API to use before regular one is ready is const API = "https://jsonplaceholder.typicode.com";
+//FAKE DATA for testing import { TRAIL_LIST, TRAIL_DETAILS } from "./trailsFakeData";
 
 export const GET_TRAILS_REQUEST = "GET_TRAILS";
 const getTrailsAction = () => ({

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import TrailDetailComments from './TrailDetailComments';
 import TrailDetailCalendar from './TrailDetailCalendar';
 import TrailDetailInfo from './TrailDetailInfo';
-import { getTrail, deleteTrail, getTrails } from '../trailActions';
+import { getTrail } from '../trailActions';
 
 class TrailDetailPage extends React.Component {
 
@@ -15,7 +15,7 @@ class TrailDetailPage extends React.Component {
                 trailId: this.props.match.params.id
             })
         ).then(() => {
-            alert('Fetched Succesfully!');
+            //alert('Fetched Succesfully!');
         });
     }
 

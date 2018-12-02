@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import TrailListItem from './TrailListItem';
 class TrailList extends Component {
     render() {
-        const { trails, deleteTrail } = this.props;
+        const { trails } = this.props;
         console.log('TRAILS:', trails);
         return (
             <div>
