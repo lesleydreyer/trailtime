@@ -13,6 +13,23 @@ const TrailCreateForm = (props) => {
             <Field name="trailLocation" component='input' placeholder="description of trail" /> <br />
             <label htmlFor="trailDescription">Trail Description</label> <br />
             <Field name="trailDescription" component='input' placeholder="description of trail" /> <br />
+            <label htmlFor="trailImage">Trail Image</label> <br />
+            <Field name="trailImage" component={
+                props => {
+                    const { onChange } = props.input;
+                    return (
+                        <input
+                            type="file"
+                            id="trailImage"
+                            name="trailImage"
+                            accept="image/png, image/jpeg"
+                            onChange={(event) => {
+                                onChange(event.target.files);
+                            }}
+                        />
+                    );
+                }
+            } /> <br />
             <button type="submit">Submit Trail</button>
         </form>
     )
