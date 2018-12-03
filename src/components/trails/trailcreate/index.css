@@ -1,0 +1,27 @@
+button {
+    background-color: #3B2974;
+    color: white;
+    border: none;
+    padding: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    color: gold;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    margin-bottom: 8px;
+    margin-top: 2px;
+    padding: 5px;
+}
+

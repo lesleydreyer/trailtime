@@ -3,9 +3,8 @@ import { NavLink } from 'react-router-dom';
 import './index.css';
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
-
 import { logout } from '../auth/authActions';
-
+import logo from '../home/logo.svg'
 class NavBar extends React.Component {
     logout() {
         this.props.dispatch(logout());
@@ -44,7 +43,7 @@ class NavBar extends React.Component {
             <div className="navbar">
                 <ul className="navlinks">
                     <li>
-                        <NavLink className="trailtime" to="/">TRAIL TIME!</NavLink>
+                        <NavLink className="trailtime" to="/"><img className="logo" src={logo} alt="logo" /></NavLink>
                     </li>
                     {defaultLinks}
                     {authLinks}

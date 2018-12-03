@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
 import fourpeaks from '../traildetail/fourpeaks.jpg';
-import { deleteTrail } from '../trailActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 //import TrailImages from './TrailImages';
@@ -11,19 +10,6 @@ import { withRouter } from 'react-router-dom';
 //{/*src={trail.images[0]}*/}<img src={fourpeaks} />
 
 class TrailDetailInfo extends React.Component {
-    deleteTrail = trailId => {
-        this.props.dispatch(
-            deleteTrail({
-                jwt: this.props.jwt,
-                trailId
-            }))
-            .then(() => {
-                alert('Trail deleted.');
-                this.props.history.push('/trails');
-            });
-    }
-
-
     render() {
         const { trail } = this.props;
         return (
@@ -40,7 +26,7 @@ class TrailDetailInfo extends React.Component {
                 <p>{trail.trailRating}</p>
                 <Link to={`/edit/${trail.id}`}><button>EDIT TRAIL INFO</button></Link>&nbsp;&nbsp;
                 <Link to={`/images/${trail.id}`}><button>UPLOAD PICTURES</button></Link>&nbsp;&nbsp;
-            <button onClick={() => this.deleteTrail(trail.id)}>DELETE TRAIL</button>
+            <button onClick={this.props.onTrailDelete}>DELETE TRAIL</button>
             </React.Fragment >
         )
     }

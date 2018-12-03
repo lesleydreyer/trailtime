@@ -1,5 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import './index.css';
 
 const TrailCreateForm = (props) => {
     return (
@@ -12,8 +13,6 @@ const TrailCreateForm = (props) => {
             <Field name="trailLocation" component='input' placeholder="description of trail" /> <br />
             <label htmlFor="trailDescription">Trail Description</label> <br />
             <Field name="trailDescription" component='input' placeholder="description of trail" /> <br />
-            <label htmlFor="trailPictures">Trail Pictures</label> <br />
-            <button type="trailPictures">Upload Pictures</button><br />
             <button type="submit">Submit Trail</button>
         </form>
     )

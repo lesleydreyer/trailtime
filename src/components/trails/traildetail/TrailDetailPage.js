@@ -4,9 +4,20 @@ import { connect } from 'react-redux';
 import TrailDetailComments from './TrailDetailComments';
 import TrailDetailCalendar from './TrailDetailCalendar';
 import TrailDetailInfo from './TrailDetailInfo';
-import { getTrail } from '../trailActions';
+import { getTrail, deleteTrail } from '../trailActions';
 
 class TrailDetailPage extends React.Component {
+    onTrailDelete = () => {
+        this.props.dispatch(
+            deleteTrail({
+                jwt: this.props.jwt,
+                trailId: this.props.trail.id
+            })
+        ).then(() => {
+            alert('Trail deleted.');
+            this.props.history.push('/trails');
+        });
+    }
 
     componentDidMount() {
         this.props.dispatch(
@@ -28,7 +39,7 @@ class TrailDetailPage extends React.Component {
         return (
             <main role="main">
                 <h1>Hello world!</h1>
-                <TrailDetailInfo trail={trail} />
+                <TrailDetailInfo trail={trail} onTrailDelete={this.onTrailDelete} />
                 <br />
                 <hr />
                 <TrailDetailCalendar />
