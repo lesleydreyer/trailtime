@@ -17,13 +17,16 @@ const TrailCreateForm = (props) => {
             <Field name="trailImage" component={
                 props => {
                     const { onChange } = props.input;
+                    console.log('onchange', onChange)
                     return (
                         <input
                             type="file"
                             id="trailImage"
                             name="trailImage"
+                            multiple
                             accept="image/png, image/jpeg"
                             onChange={(event) => {
+                                console.log('files', event.target.files)
                                 onChange(event.target.files);
                             }}
                         />

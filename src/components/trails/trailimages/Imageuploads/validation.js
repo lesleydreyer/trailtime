@@ -1,6 +1,6 @@
 export function validateImageFiles(files) {
     const SUPPORTED_FILE_TYPES = ['image/png', 'image/jpeg', 'image/gif'];
-    const MAX_IMAGE_SIZE = 150000;
+    const MAX_IMAGE_SIZE = 5000000;//150000
     const errors = [];
 
     if (files.length > 3) {

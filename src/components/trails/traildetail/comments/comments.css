@@ -1,0 +1,12 @@
+.commentAuthor { 
+    color: darkgray;
+    font-style: italic;
+    font-size: 90%;
+}
+
+.comment {
+    border-bottom: 1px solid gainsboro;
+    width: 50%;
+    margin: 0 auto;
+    padding: 5px;
+}

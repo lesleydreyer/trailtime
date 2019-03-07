@@ -16,7 +16,5 @@ class TrailListItem extends Component {
         );
     }
 }
-// /<Link to={`/edit/${trail.id}`} trail={trail}>edit</Link>
-//<button onClick={deleteTrail(trail.id)}>delete</button>
 
 export default TrailListItem;

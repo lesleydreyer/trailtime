@@ -12,8 +12,10 @@ import TrailDashboard from './trails/traildashboard/TrailDashboard';
 import TrailImagePage from './trails/trailimages/TrailImagePage';
 import Cloudinary from './zzzOldCloudinary/CloudinaryWidget';
 import Gallery from './zzzOldCloudinary/Gallery';
-import Carousel from './zzzOldCarousel/AliceCarousel'
 import FileInput from './zzzOldCloudinary/FileInput';
+import TrailImagesAlternative from './trails/trailimages/Imageuploads/TrailImagesAlternative';
+import TrailMap from './trails/traildetail/TrailMap';
+
 class App extends Component {
   render() {
     return (
@@ -34,11 +36,12 @@ class App extends Component {
                   <Route path="/edit/:id" component={TrailEditPage} />
                   <Route path="/images/:id" component={TrailImagePage} />
                   <Route path="/trails" component={TrailDashboard} />
+                  <Route path="/map" component={TrailMap} />
                   {/**below are just things played around with trying to get cloudinary and image displays to work */}
+                  <Route path="/images2/:id" component={TrailImagesAlternative} />
                   <Route path="/cloud" component={Cloudinary} />
                   <Route path="/gallery" component={Gallery} />
                   <Route path="/fileinput" component={FileInput} />
-                  <Route path="/alice" component={Carousel} />
                 </Switch>
               </div>
             </div>

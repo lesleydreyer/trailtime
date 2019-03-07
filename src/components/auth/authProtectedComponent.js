@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, withRouter } from "react-router-dom";
 
 export default Component => {
     function AuthProtectedComponent(props) {
@@ -18,6 +18,6 @@ export default Component => {
     const mapStateToProps = state => ({
         isLoggedIn: !!(state.auth.user && state.auth.jwt)
     });
-
-    return connect(mapStateToProps)(AuthProtectedComponent);
+    //withRouter(connect(mapStateToProps)(App));
+    return withRouter(connect(mapStateToProps)(AuthProtectedComponent));
 };

@@ -16,11 +16,7 @@ class TrailDashboard extends Component {
             <div>
                 <h1>TRAILS</h1><hr />
                 <TrailList
-                    trails=
-                    {trails
-                        /*
-                        trails is what you call in TrailList, 
-                        trailslist comes from above fake data*/}
+                    trails={trails}
                 /><br /><br />
             </div>
         );

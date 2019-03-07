@@ -1,12 +1,24 @@
 import React from 'react';
 import './index.css';
 import { connect } from 'react-redux';
-import TrailDetailComments from './TrailDetailComments';
-import TrailDetailCalendar from './TrailDetailCalendar';
+import TrailDetailComments from './comments/TrailDetailComments';
+import TrailCalendar from './TrailCalendar';
 import TrailDetailInfo from './TrailDetailInfo';
 import { getTrail, deleteTrail } from '../trailActions';
-
+import TrailMap from './TrailMap';
 class TrailDetailPage extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(
+            getTrail({
+                jwt: this.props.jwt,
+                trailId: this.props.match.params.id
+            })
+        ).then(() => {
+            //TODO: //not sure if i need anything here
+            //alert('Fetched Succesfully!');
+        });
+    }
+
     onTrailDelete = () => {
         this.props.dispatch(
             deleteTrail({
@@ -19,17 +31,6 @@ class TrailDetailPage extends React.Component {
         });
     }
 
-    componentDidMount() {
-        this.props.dispatch(
-            getTrail({
-                jwt: this.props.jwt,
-                trailId: this.props.match.params.id
-            })
-        ).then(() => {
-            //alert('Fetched Succesfully!');
-        });
-    }
-
     render() {
         const { trail } = this.props;
         if (!trail) {
@@ -38,16 +39,18 @@ class TrailDetailPage extends React.Component {
 
         return (
             <main role="main">
-                <h1>Hello world!</h1>
+                <h1>{trail.trailName}</h1>
                 <TrailDetailInfo trail={trail} onTrailDelete={this.onTrailDelete} />
                 <br />
                 <hr />
-                <TrailDetailCalendar />
+                <TrailCalendar />
                 <br />
                 <hr />
-                <TrailDetailComments />
+                <TrailDetailComments trail={trail} />
                 <br />
-                <br />
+                <hr />
+                <TrailMap trail={trail} />
+
             </main>
         );
     }
@@ -56,7 +59,8 @@ class TrailDetailPage extends React.Component {
 const mapStateToProps = (state) => {
     return {
         jwt: state.auth.jwt,
-        trail: state.trail.trailDetails
+        trail: state.trail.trailDetails,
+        username: state.auth.user.username
     }
 }
 

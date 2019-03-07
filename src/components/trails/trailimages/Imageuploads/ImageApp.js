@@ -19,6 +19,7 @@ class ImageApp extends Component {
     }
 
     componentDidMount() {
+        //debugger
         this.props.dispatch(
             getTrail({
                 jwt: this.props.jwt,
@@ -46,13 +47,23 @@ class ImageApp extends Component {
     }
 
     handleFormSubmit = formData => {
+        // debugger;
         this.setState({ uploading: true });
         console.log('trail', this.props.trail)
+        console.log('formdata', formData)//.values())
+        console.log('state', this.state)
+        //const data = Object.entries(params)
+        //  .map((pair) => `${pair[0]}=${pair[1]}`)
+        //.join('&');
         fetch(`${API}/images/${this.props.match.params.id}/image-upload`, {
             method: 'POST',
-            body: formData
+            body: formData,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
         })
             .then(res => {
+                console.log('SUCCESS UPLOAD', res)
                 if (!res.ok) {
                     return Promise.reject(res);
                 }
@@ -65,6 +76,7 @@ class ImageApp extends Component {
                 });
             })
             .catch(err => {
+                console.log('FAIL UPLOAD', err);
                 this.onServerError(err);
             });
     };
