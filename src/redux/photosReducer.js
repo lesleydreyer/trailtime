@@ -11,14 +11,6 @@ const initialState = {
 export default function reducer(state = initialState, action) {
     // REQUEST START
     if (
-        action.type === actions.CREATE_PHOTO_REQUEST
-    ) {
-        return {
-            ...state,
-            loading: true,
-            error: null
-        };
-    } else if (
         action.type === actions.GET_PHOTOS_REQUEST
     ) {
         return {
@@ -31,24 +23,19 @@ export default function reducer(state = initialState, action) {
         };
         // REQUEST ERROR
     } else if (
-        action.type === actions.GET_PHOTOS_FAILURE ||
-        action.type === actions.CREATE_PHOTO_FAILURE
-    ) {
+        action.type === actions.GET_PHOTOS_FAILURE) {
         return { ...state, loading: false, error: action.error };
         // REQUEST SUCCESS
     } else if (action.type === actions.GET_PHOTOS_SUCCESS) {
         return { ...state, loading: false, photoList: action.photos };
     } else if (action.type === actions.RECEIVE_PHOTOS) {
         return { ...state, loading: false, photoList: action.photoList, selectedImage: action.selectedImage };
-    } else if (action.type === actions.CREATE_PHOTO_SUCCESS) {
-        return { ...state, loading: false, photoDetails: action.photo };
     } else if (action.type === actions.GET_SELECTED_PHOTO) {
-        return { ...state, loading: false, selectImage: action.selectImage };
-    } else if (action.type === actions.PHOTOS_ARE_LOADING) {
-        return { ...state, loading: true }
+        return { ...state, loading: false, selectedImage: action.selectedImage };
     }
     return state;
 }
+
 /*
 export default function images(state = {images:[]}, action) {
   switch (action.type) {

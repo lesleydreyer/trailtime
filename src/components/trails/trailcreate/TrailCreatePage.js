@@ -18,8 +18,16 @@ class TrailCreatePage extends React.Component {
                 fetch(`${API}/images/${trail.id}/image-upload`, {
                     //fetch(`${API}/images/${this.props.match.params.id}/image-upload`, {
                     //fetch(`http://localhost:8080/api/images/image-upload`, {
+                    crossDomain: true,
+                    mode: "cors",
+                    credentials: "same-origin",
                     method: 'POST',
-                    body: values
+                    headers: {
+                        'Accept': '*/*'
+                    },
+                    body: JSON.stringify({
+                        values
+                    })
                 })
                     .then(res => {
                         debugger;

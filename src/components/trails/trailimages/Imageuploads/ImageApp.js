@@ -47,7 +47,7 @@ class ImageApp extends Component {
     }
 
     handleFormSubmit = formData => {
-        // debugger;
+        debugger;
         this.setState({ uploading: true });
         console.log('trail', this.props.trail)
         console.log('formdata', formData)//.values())
@@ -57,9 +57,9 @@ class ImageApp extends Component {
         //.join('&');
         fetch(`${API}/images/${this.props.match.params.id}/image-upload`, {
             method: 'POST',
-            body: formData,
+            body: formData,//JSON.stringify(formData),
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                'Content-Type': 'application/x-www-form-urlencoded'//multipart/form-data
             },
         })
             .then(res => {
