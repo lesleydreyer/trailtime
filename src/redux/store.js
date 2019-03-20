@@ -8,13 +8,9 @@ import { loadAuthData } from '../components/auth/localStorage';
 import { setAuthData } from '../components/auth/authActions';
 import trailReducer from './trailReducer';
 import authReducer from './authReducer';
-import commentsReducer from './commentsReducer';
-import photoReducer from './photosReducer';
 
 const rootReducer = combineReducers({
     trail: trailReducer,
-    comments: commentsReducer,
-    photos: photoReducer,
     auth: authReducer,
     form: formReducer
 })

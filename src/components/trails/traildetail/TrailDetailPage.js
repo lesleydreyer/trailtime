@@ -1,11 +1,8 @@
 import React from 'react';
 import './index.css';
 import { connect } from 'react-redux';
-import TrailDetailComments from './comments/TrailDetailComments';
-import TrailCalendar from './TrailCalendar';
 import TrailDetailInfo from './TrailDetailInfo';
 import { getTrail, deleteTrail } from '../trailActions';
-import TrailMap from './TrailMap';
 class TrailDetailPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(
@@ -13,10 +10,7 @@ class TrailDetailPage extends React.Component {
                 jwt: this.props.jwt,
                 trailId: this.props.match.params.id
             })
-        ).then(() => {
-            //TODO: //not sure if i need anything here
-            //alert('Fetched Succesfully!');
-        });
+        )
     }
 
     onTrailDelete = () => {
@@ -32,7 +26,7 @@ class TrailDetailPage extends React.Component {
     }
 
     render() {
-        const { trail } = this.props;
+        const { trail, username } = this.props;
         if (!trail) {
             return <p>Loading ...</p>;
         }
@@ -40,17 +34,7 @@ class TrailDetailPage extends React.Component {
         return (
             <main role="main">
                 <h1>{trail.trailName}</h1>
-                <TrailDetailInfo trail={trail} onTrailDelete={this.onTrailDelete} />
-                <br />
-                <hr />
-                <TrailCalendar />
-                <br />
-                <hr />
-                <TrailDetailComments trail={trail} />
-                <br />
-                <hr />
-                <TrailMap trail={trail} />
-
+                <TrailDetailInfo trail={trail} user={username} onTrailDelete={this.onTrailDelete} />
             </main>
         );
     }
@@ -59,8 +43,7 @@ class TrailDetailPage extends React.Component {
 const mapStateToProps = (state) => {
     return {
         jwt: state.auth.jwt,
-        trail: state.trail.trailDetails,
-        username: state.auth.user.username
+        trail: state.trail.trailDetails
     }
 }
 

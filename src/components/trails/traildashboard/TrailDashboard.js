@@ -12,9 +12,10 @@ class TrailDashboard extends Component {
 
     render() {
         const { trails } = this.props;
-        return (
+        return (  
             <div>
-                <h1>TRAILS</h1><hr />
+                <p>Looking for adventure? Explore the list of trails below, and add your own trails to the list!</p>
+                <input type="search" placeholder="Search by Location"></input>
                 <TrailList
                     trails={trails}
                 /><br /><br />
