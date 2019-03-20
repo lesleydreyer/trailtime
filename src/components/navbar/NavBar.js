@@ -4,12 +4,14 @@ import './index.css';
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import { logout } from '../auth/authActions';
-import logo from '../home/logo.svg';
+import logo from '../home/logo2.svg';
 import './floatgrid.css';
 import viewtrailsicon from './viewtrailsicon.svg';
 import viewtrailsiconwhite from './viewtrailsiconwhite.svg';
 import addtrailicon from './addtrailicon.svg';
+import addtrailiconwhite from './addtrailiconwhite.svg';
 import logouticon from './logouticon.svg';
+import logouticonwhite from './logouticonwhite.svg';
 
 /* 
 onMouseOver={e => (e.target.src = "http://localhost:3000/static/media/viewtrailsiconwhite.9482d3ba.svg")} />

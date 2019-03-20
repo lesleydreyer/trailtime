@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import logo from './logo.svg';
+import logo from './logo2.svg';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
@@ -20,9 +20,7 @@ const HomePage = (props) => {
                 </header>
                 <main role="main">
                     <div>
-                        <span className="circle">Discover new trails</span>
-                        <span className="circle">Add your trails</span>
-                        <span className="circle">Meet up with others</span>
+                        <span className="info">Discover trails to go on and add your own! Eventually I would like to add the ability to add photos, calendar events and comments.</span>
                         <button className="loginbtn" onClick={() => history.push('/login')} type="button">Start Adventuring > </button>
                     </div><br /><br />
                 </main>
