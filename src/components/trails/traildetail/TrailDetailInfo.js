@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './index.css';
+import '../traillist/floatgrid.css';
 import fourpeaks from './fourpeaks.jpg'
 class TrailDetailInfo extends React.Component {
 
@@ -34,13 +35,21 @@ class TrailDetailInfo extends React.Component {
 
         return (
             <React.Fragment>
-                <img src={imageUrl} alt={trail.trailName || "jeeping on a random trail"} />
-                <p>{trail.trailDescription}</p>
-                <p>{trail.trailLocation}</p>
-                <p>{trail.trailRating}</p>
-                {/*if user created trail give edit/delete buttons, if not have email creator */
-                    this.state.loggedInUserCreatedTrail ? userCreatedTrail : userDidNotCreateTrail}
-                <hr />
+                <span className="img">
+                    <img src={imageUrl} alt={trail.trailName || "jeeping on a random trail"} />
+                </span>
+                <span className="detailpageinfo">
+                    <h1>{trail.trailName}</h1>
+                    <p>{trail.trailDescription}</p>
+                    <hr className="hr" />
+                    <h3>LOCATION</h3>
+                    <p>{trail.trailLocation}</p>
+                    <hr className="hr" />
+                    <h3>RATING</h3>
+                    <p>{trail.trailRating}</p>
+                    {/*if user created trail give edit/delete buttons, if not have email creator */
+                        this.state.loggedInUserCreatedTrail ? userCreatedTrail : userDidNotCreateTrail}
+                </span>
             </React.Fragment >
         )
     }

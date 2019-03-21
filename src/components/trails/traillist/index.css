@@ -1,29 +1,3 @@
-.imageList {
-  width: 80%;
-  margin-bottom: 10px;
-  border: 1px solid black;
-  position: relative;
-}
-
-@font-face {
-  font-family: 'homemadefont';
-  src: local('homemadefont'), url(../../../fonts/homemade_one-webfont.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'tahu';
-  src: local('tahu'), url(../../../fonts/tahu-webfont.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'bourbon';
-  src: local('bourbon'), url(../../../fonts/bourbongrotesque-regular1-webfont.woff) format('woff');
-}
-
-@font-face {
-  font-family: 'intro';
-  src: local('intro'), url(../../../fonts/introrustg-base2line-webfont.woff) format('woff');
-}
 
 body {
   background-color: white;
@@ -42,6 +16,7 @@ body {
   box-shadow: 5px 5px #848c3c;
   */
   height: 200px;
+  margin: 20px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -72,7 +47,7 @@ body {
   cursor: pointer;
 }
 
-h2 {
+.trailName {
   font-family: intro, homemadefont, montserrat, arvo, just me again down here, montserrat;
   font-weight: 100;
   letter-spacing: .05em;
@@ -92,6 +67,8 @@ a {
   font-family: montserrat;
   letter-spacing: .2em;
   text-transform: uppercase;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 .linkInfo {
   padding: 5px;

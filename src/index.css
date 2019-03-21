@@ -10,6 +10,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+@font-face {
+  font-family: 'homemadefont';
+  src: local('homemadefont'), url(./fonts/homemade_one-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'tahu';
+  src: local('tahu'), url(./fonts/tahu-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'bourbon';
+  src: local('bourbon'), url(./fonts/bourbongrotesque-regular1-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'intro';
+  src: local('intro'), url(./fonts/introrustg-base2line-webfont.woff) format('woff');
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

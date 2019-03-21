@@ -2,12 +2,13 @@ button {
     background-color: #3B2974;
     color: white;
     border: none;
+    border-radius: 10px;
     padding: 8px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
     margin: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-style: italic;
+    font-family: montserrat, bourbon, 'Roboto', sans-serif;
+    font-weight: bold;
     letter-spacing: 1px;
 }
 

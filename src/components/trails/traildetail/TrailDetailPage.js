@@ -33,7 +33,6 @@ class TrailDetailPage extends React.Component {
 
         return (
             <main role="main">
-                <h1>{trail.trailName}</h1>
                 <TrailDetailInfo trail={trail} user={username} onTrailDelete={this.onTrailDelete} />
             </main>
         );

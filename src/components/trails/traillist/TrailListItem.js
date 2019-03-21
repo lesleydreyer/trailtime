@@ -17,9 +17,16 @@ class TrailListItem extends Component {
                 <Link to={`/detail/${trail.id}`}>
                     <div className="trailListItem" data-src="" style={divStyle}>
                         <span className="text">
-                            <h2>{trail.trailName}</h2>
-                            <p className="locationRating">{trail.trailLocation} &nbsp; | &nbsp; {trail.trailRating}</p>
-                            <br/><p className="linkInfo">More Info ></p>
+                            <span className="trailName">
+                                {trail.trailName}
+                            </span><br />
+                            <span className="locationRating">
+                                {trail.trailLocation} <br />
+                                {trail.trailRating}
+                            </span><br />
+                            <span className="linkInfo">
+                                More Info >
+                            </span>
                         </span>
                     </div>
                 </Link>

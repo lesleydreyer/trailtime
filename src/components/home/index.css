@@ -3,6 +3,26 @@ body, html {
     margin: 0;
 }
 
+@font-face {
+  font-family: 'homemadefont';
+  src: local('homemadefont'), url(../../fonts/homemade_one-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'tahu';
+  src: local('tahu'), url(../../fonts/tahu-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'bourbon';
+  src: local('bourbon'), url(../../fonts/bourbongrotesque-regular1-webfont.woff) format('woff');
+}
+
+@font-face {
+  font-family: 'intro';
+  src: local('intro'), url(../../fonts/introrustg-base2line-webfont.woff) format('woff');
+}
+
 .bg {
     /* The image used */
     background-image: url('./silverton.jpg');
@@ -31,7 +51,8 @@ body, html {
     color: white;
     width: 100vw;
     padding: 20px;
-    font-family: 'Covered By Your Grace', cursive;
+    font-family: intro, 'Covered By Your Grace', cursive;
+    font-weight: lighter;
     font-size: 225%;
     border: none;
      position:fixed;
