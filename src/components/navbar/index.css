@@ -55,6 +55,9 @@ span {
     width: 45%;
 }
 
+.navicons:hover{
+    filter: brightness(0) invert(1);
+}
 
 
 

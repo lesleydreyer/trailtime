@@ -1,5 +1,5 @@
 import trailReducer from './trailReducer';
-import { CREATE_TRAIL_REQUEST } '../components/trails/trailActions';
+import { CREATE_TRAIL_REQUEST } from '../components/trails/trailActions';
 
 describe('Trail reducer', () => {
     const testInitialState = {

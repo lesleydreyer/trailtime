@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TrailListItem from './TrailListItem';
-class TrailList extends Component {
+export class TrailList extends Component {
     render() {
         const { trails } = this.props;
         //console.log('TRAILS:', trails);

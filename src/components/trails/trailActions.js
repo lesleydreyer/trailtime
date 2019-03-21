@@ -86,16 +86,16 @@ export const getTrail = payload => dispatch => {
 };
 
 export const CREATE_TRAIL_REQUEST = "CREATE_TRAIL";
-const createTrailAction = trail => ({
+export const createTrailAction = trail => ({
     type: CREATE_TRAIL_REQUEST,
     trail
 });
 export const CREATE_TRAIL_SUCCESS = "CREATE_TRAIL_SUCCESS";
-const createTrailSuccessAction = () => ({
+export const createTrailSuccessAction = () => ({
     type: CREATE_TRAIL_SUCCESS
 });
 export const CREATE_TRAIL_FAILURE = "CREATE_TRAIL_FAILURE";
-const createTrailFailureAction = error => ({
+export const createTrailFailureAction = error => ({
     type: CREATE_TRAIL_FAILURE,
     error
 });
