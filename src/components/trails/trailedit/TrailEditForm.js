@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from "react-redux";
 
-const TrailEditForm = (props) => {
+export const TrailEditForm = (props) => {
     return (
         <form id='trail-edit-form' onSubmit={props.handleSubmit}>
             <label htmlFor="trailName">Trail Name</label> <br />

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TrailCreateForm from './TrailCreateForm';
 import { createTrail } from '../trailActions';
 import AuthProtectedComponent from '../../auth/authProtectedComponent';
-class TrailCreatePage extends React.Component {
+export class TrailCreatePage extends React.Component {
 
     onCreateTrailFormSubmit = (values) => {
         this.props.dispatch(

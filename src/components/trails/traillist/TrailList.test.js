@@ -3,11 +3,10 @@ import { shallow } from 'enzyme';
 import TrailList from './TrailList';
 //import TrailListItem from './TrailListItem';
 
-describe('My work', () => {
-    test('works', () => {
+describe('Trail List', () => {
+    test('exists', () => {
         let wrap = shallow(<TrailList />);
         expect(wrap.exists()).toBe(true);
-        //expect(2).toEqual(2)
     })
 })
 

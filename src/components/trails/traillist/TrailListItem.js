@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import fourpeaks from '../traildetail/fourpeaks.jpg'
 import './index.css';
-import './floatgrid.css';
+import '../../app/common/floatgrid.css';
 class TrailListItem extends Component {
     render() {
         const { trail } = this.props;//const { trail, deleteTrail } = this.props;
@@ -37,25 +37,3 @@ class TrailListItem extends Component {
 }
 
 export default TrailListItem;
-
-/*
-class TrailListItem extends Component {
-    render() {
-        const { trail } = this.props;//const { trail, deleteTrail } = this.props;
-        const imageUrl = trail.trailImage || fourpeaks;
-        return (
-            <div className="row">
-                <div className="col-6">
-                    <img src={imageUrl} className="imageList" alt="trail pic" />
-                </div>
-                <div className="col=6">
-                    <h3>{trail.trailName}</h3>
-                    <p>{trail.trailLocation} | {trail.trailRating}</p>
-                    <Link to={`/detail/${trail.id}`}>View trail details > </Link>
-                </div>
-                <hr />
-            </div>
-        );
-    }
-}
-*/

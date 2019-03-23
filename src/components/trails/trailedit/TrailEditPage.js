@@ -5,7 +5,7 @@ import { getTrail, updateTrail } from '../trailActions';
 import AuthProtectedComponent from '../../auth/authProtectedComponent';
 
 
-class TrailEditPage extends React.Component {
+export class TrailEditPage extends React.Component {
 
     componentDidMount() {
         this.props.getTrail({

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TrailList from '../traillist/TrailList';
 import { getTrails } from '../trailActions';
 
-class TrailDashboard extends Component {
+export class TrailDashboard extends Component {
     componentDidMount() {
         this.props.getTrails({
             jwt: this.props.jwt

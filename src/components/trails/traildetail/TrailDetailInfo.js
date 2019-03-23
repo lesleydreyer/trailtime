@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import './index.css';
-import '../traillist/floatgrid.css';
+import '../../app/common/floatgrid.css';
 import fourpeaks from './fourpeaks.jpg'
-class TrailDetailInfo extends React.Component {
+export class TrailDetailInfo extends React.Component {
 
     state = { loggedInUserCreatedTrail: false };
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import LogInForm from './LogInForm';
 import { logIn } from "./authActions";
 
-class LogInPage extends React.Component {
+export class LogInPage extends React.Component {
     login(values) {
         this.props.dispatch(
             logIn(values)

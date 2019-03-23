@@ -3,7 +3,7 @@ import './index.css';
 import { connect } from 'react-redux';
 import TrailDetailInfo from './TrailDetailInfo';
 import { getTrail, deleteTrail } from '../trailActions';
-class TrailDetailPage extends React.Component {
+export class TrailDetailPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(
             getTrail({

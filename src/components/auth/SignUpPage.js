@@ -2,7 +2,7 @@ import React from 'react';
 import SignUpForm from './SignUpForm';
 import { connect } from "react-redux";
 import { signUp } from "./authActions";
-class SignUpPage extends React.Component {
+export class SignUpPage extends React.Component {
 
     signup = (values) => {
         this.props.dispatch(

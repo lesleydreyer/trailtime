@@ -11,7 +11,7 @@ li a {
 }
 
 .navbar {
-    background-image: url('./dirtsplash.svg');
+    background-image: url('./images/dirtsplash.svg');
     width: 100%;
     height: 25%;
     min-height: auto;

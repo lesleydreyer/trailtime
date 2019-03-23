@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 
-const LogInForm = (props) => {
+export const LogInForm = (props) => {
     return (
         <form id="login-form" onSubmit={props.handleSubmit}>
             <fieldset>

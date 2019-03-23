@@ -4,13 +4,13 @@ import './index.css';
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import { logout } from '../auth/authActions';
-import logo from '../home/logo2.svg';
-import './floatgrid.css';
+import logo from '../home/images/logo2.svg';
+import '../app/common/floatgrid.css';
 import AddTrailIconSVG from './icons/AddTrailIcon';
 import ListTrailsIconSVG from './icons/ListTrailsIcon';
 import LogOutIconSVG from './icons/LogOutIcon';
-
-class NavBar extends React.Component {
+//https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91
+export class NavBar extends React.Component {
 
     logout() {
         this.props.dispatch(logout());
