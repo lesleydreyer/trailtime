@@ -10,7 +10,7 @@ class TrailListItem extends Component {
         const divStyle = {
             WebkitTransition: 'all',
             msTransition: 'all',
-            backgroundImage: 'url(' + imageUrl + ')',
+            backgroundImage: 'url(' + (trail.trailImage || fourpeaks) + ')',
         };
         return (
             <div className="col-6">

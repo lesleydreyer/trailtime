@@ -1,13 +1,25 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import TrailList from './TrailList';
+import TrailListItem from './TrailListItem';
 //import TrailListItem from './TrailListItem';
 
 describe('Trail List', () => {
     test('exists', () => {
-        let wrap = shallow(<TrailList />);
+        const wrap = shallow(<TrailList />);
         expect(wrap.exists()).toBe(true);
-    })
+    });
+    test('has classname of gallery', () => {
+        const wrap = shallow(<TrailList />);
+        expect(wrap.find('.gallery').length).toEqual(1);
+        //expect(wrap.matchesElement(<TrailListItem />)).to.equal(true);
+        //expect(wrap.hasClass('.gallery')).toEqual(true);
+    });
+    //test('has TrailListItem', () => {
+    const wrap = shallow(<TrailList />);
+    //expect(wrap.find('<TrailListItem />').length).toEqual(1);
+    //expect(wrap.contains(<TrailListItem />)).toEqual(true);
+    //})
 })
 
 

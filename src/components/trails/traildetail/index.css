@@ -1,5 +1,3 @@
-
-
 .img {
   max-width: 90vw;
   margin: 0 auto;
@@ -23,21 +21,3 @@ p {
   margin-top: -10px;
 }
 
-
-.hr {
-		height: 6px;
-	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
-    border: 0;
-}
-hr.style11 {
-	height: 6px;
-	background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
-    border: 0;
-}
-
-
-hr.style12 {
-	height: 6px;
-	background: url(http://ibrahimjabbari.com/english/images/hr-12.png) repeat-x 0 0;
-    border: 0;
-}
