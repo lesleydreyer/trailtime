@@ -166,29 +166,36 @@ li a:active {
   float: left;
   padding-top: 10px;
   padding-bottom: 10px;
-  /*width: 30vw;*/
+  width: 30vw;
   /*background-color: aquamarine;*/
 }
 
 .navbar-left > .navlink {
     margin-left: 20px;
 }
+svg {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
 
 .navbar-middle {
     margin: 0 auto;
     width: 40vw;
-    object-fit: contain;
     /*background-color: cornsilk;*/
 }
-.navlink {
+img {
+    height: 100%;
+    width: 100%;
     object-fit: contain;
 }
 
 .navbar-right {
   float: right;
   margin-right: 10px;
-  /*width: 30vw;*/
+  width: 30vw;
   /*background-color: pink;*/
+  height: initial;
 }
 
 

@@ -1,16 +1,26 @@
 import React from "react";
 
+const styles = {
+	width: "50px",
+	height: "auto",
+	overflow: 'hidden',
+	resize: 'horizontal'
+};
+
+
 const AddTrailIconSVG = ({
 	alt='add a trail',
-    style = {},
-    fill = 'red',
-    width = '127.667px',//'50%'
+    style = {styles},
+    //width = '127.667px',//'50%'
     className = 'navicons',
-    height = '134px',//'200%'
-    viewBox = '0 0 127.667 134'//0 0 32 32',//
+	//height = '134px',//'200%'
+	preserveAspectRasion="xMidYMid meet",
+	viewBox = '0 0 127.667 134'//0 0 32 32',//            
+	//width={width} height={height} viewBox={viewBox} className={`${className || ""}`} enable-background="new 0 0 127.667 134">
+
 }) => (
-<svg version="1.1" id="Layer_1" x="0px" y="0px" aria-labelledby="addTrailIcon" role="img"
-            width={width} height={height} viewBox={viewBox} className={`${className || ""}`} enable-background="new 0 0 127.667 134">
+<svg version="1.1" id="Layer_1" x="0px" y="0px" aria-labelledby="addTrailIcon" 
+preserveAspectRatio={preserveAspectRasion} style={styles} viewBox={viewBox} role="img">
 			<title id="addTrailIcon">Link to Add a Trail</title>
 <g>
 	<defs>

@@ -6,7 +6,7 @@ export const TrailCreateForm = (props) => {
     return (
         <form id='trail-create-form' onSubmit={props.handleSubmit}>
             <label htmlFor="trailName">Trail Name</label> <br />
-            <Field name="trailName" component='input' placeholder="Name of Trail" /> <br />
+            <Field id="trailNameField" name="trailName" component='input' placeholder="Name of Trail" /> <br />
             <label htmlFor="trailRating">Trail Rating</label> <br />
             <Field name="trailRating" component='input' placeholder="Easy, Medium or Hard" /> <br />
             <label htmlFor="trailLocation">Trail Location</label> <br />

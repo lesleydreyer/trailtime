@@ -14,7 +14,6 @@ export class TrailDashboard extends Component {
         const { trails } = this.props;
         return (
             <div>
-                <input type="search" placeholder="Search Trails"></input>
                 <TrailList
                     trails={trails}
                 /><br /><br />

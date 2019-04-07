@@ -6,9 +6,6 @@ import { withRouter } from 'react-router-dom';
 import { logout } from '../auth/authActions';
 import logo from '../home/images/logo2.svg';
 //import '../app/common/floatgrid.css';
-import addtrailicon from './icons/OldSvgImageFiles/addtrailicon.svg';
-import viewtrailicon from './icons/OldSvgImageFiles/viewtrailsicon.svg';
-import logouticon from './icons/OldSvgImageFiles/logouticon.svg';
 import AddTrailIconSVG from './icons/AddTrailIcon';
 import ListTrailsIconSVG from './icons/ListTrailsIcon';
 import LogOutIconSVG from './icons/LogOutIcon';
@@ -54,14 +51,14 @@ export class NavBar extends React.Component {
             <React.Fragment>
                 <div className="navbar">
                     <div className="navbar-left col-4nav">
-                        <NavLink className="navlink" to="/trails"><img id="view" src={viewtrailicon} alt="View List of Trails" /></NavLink>
-                        <NavLink className="navlink" to="/create"><img id="add" src={addtrailicon} alt="Add a Trail" /></NavLink>
+                        <NavLink className="navlink" to="/trails"><ListTrailsIconSVG width={50} /></NavLink>
+                        <NavLink className="navlink" to="/create"><AddTrailIconSVG width={50} /></NavLink>
                     </div>
                     <div className="navbar-middle col-4nav">
                         <NavLink id="trailtimelogo" to="/"><img src={logo} alt="logo" /></NavLink>
                     </div>
                     <div className="navbar-right col-4nav">
-                        <NavLink className="navlink" to="/" onClick={this.logout.bind(this)}><img id="add" src={logouticon} alt="Log Out" /></NavLink>
+                        <NavLink className="navlink" to="/" onClick={this.logout.bind(this)}><LogOutIconSVG /></NavLink>
                     </div>
                 </div><br /><br /><br />
             </React.Fragment>

@@ -3,6 +3,7 @@ import './index.css';
 import logo from './images/logo2.svg';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Footer } from '../footer/Footer';
 
 export const HomePage = (props) => {
     const { history, isLoggedIn } = props;
@@ -14,17 +15,21 @@ export const HomePage = (props) => {
         <React.Fragment>
             <div className='bg'>
                 <header role="banner">
-                    <img src={logo} alt="logo" />
+                    <img id="trailTimeLogoHomePage" src={logo} alt="Trail Time Logo" />
                     <div className="row">
                     </div>
                 </header>
                 <main role="main">
-                    <div>
-                        <span className="info">Discover trails to go on and add your own! Eventually I would like to add the ability to add photos, calendar events and comments.</span>
+                    <div className="homePageInfo">
+                        <span className="info">
+                            Discover off road trails and add your own!
+                            Eventually I would like to add the ability to add photos, calendar events  and comments.
                         <button className="loginbtn" onClick={() => history.push('/login')} type="button">Start Adventuring > </button>
+                        </span>
                     </div><br /><br />
                 </main>
             </div>
+            <Footer />
         </React.Fragment>
     )
 }

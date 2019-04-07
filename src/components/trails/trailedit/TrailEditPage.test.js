@@ -3,26 +3,23 @@ import { shallow } from 'enzyme';
 import { TrailEditPage } from './TrailEditPage';
 
 
-function setup() {
-    const props = {
-        onEditTrailFormSubmit: jest.fn(),
-        getTrail: jest.fn()
-    }
-
-    const enzymeWrapper = shallow(<TrailEditPage {...props} />);
-
-    return {
-        props,
-        enzymeWrapper
-    }
-}
-
-
 let wrap;
 
 describe('TrailEditPage', () => {
     test('exists', () => {
-        wrap = shallow(<TrailEditPage />);
+        const getTrail = () => { };
+        const jwt = 'abc';
+        const match = { params: { id: '123' } }
+        const updateTrail = () => { };
+        wrap = shallow(<TrailEditPage
+            getTrail={getTrail}
+            jwt={jwt}
+            match={match}
+            updateTrail={updateTrail}
+        />);
+        //console.log(wrap.debug())
         expect(wrap.exists()).toBe(true);
+        expect(wrap.find('TrailEditForm').length).not.toEqual(1);
+        //expect(wrap.containsMatchingElement(<TrailEditForm />))
     })
 })

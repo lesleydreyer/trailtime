@@ -10,12 +10,12 @@ export const TrailEditForm = (props) => {
             <label htmlFor="trailRating">Trail Rating</label> <br />
             <Field name="trailRating" component='input' placeholder="rating of trail" /> <br />
             <label htmlFor="trailLocation">Trail Location</label> <br />
-            <Field name="trailLocation" component='input' placeholder="description of trail" /> <br />
+            <Field name="trailLocation" component='input' placeholder="location of trail" /> <br />
             <label htmlFor="trailDescription">Trail Description</label> <br />
             <Field name="trailDescription" component='input' placeholder="description of trail" /> <br />
-            <label htmlFor="trailPictures">Trail Pictures</label> <br />
-            <button type="trailPictures">Upload Pictures</button><br />
-            <button type="submit">Submit Trail</button>
+            <label htmlFor="trailImage">Trail Image</label> <br />
+            <Field name="trailImage" component='input' placeholder="Image URL (right click copy address)" /> <br />
+            <button type="submit">Submit Updates</button>
         </form>
     )
 }

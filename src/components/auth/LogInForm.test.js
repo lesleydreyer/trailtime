@@ -8,5 +8,5 @@ describe('LogInForm', () => {
     test('exists', () => {
         wrap = shallow(<LogInForm />);
         expect(wrap.exists()).toBe(true);
-    })
-})
+    });
+});

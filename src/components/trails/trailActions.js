@@ -3,16 +3,16 @@ import { API } from '../../config';
 //FAKE DATA for testing import { TRAIL_LIST, TRAIL_DETAILS } from "./trailsFakeData";
 
 export const GET_TRAILS_REQUEST = "GET_TRAILS";
-const getTrailsAction = () => ({
+export const getTrailsAction = () => ({
     type: GET_TRAILS_REQUEST
 });
 export const GET_TRAILS_SUCCESS = "GET_TRAILS_SUCCESS";
-const getTrailsSuccessAction = trails => ({
+export const getTrailsSuccessAction = trails => ({
     type: GET_TRAILS_SUCCESS,
     trails
 });
 export const GET_TRAILS_FAILURE = "GET_TRAILS_FAILURE";
-const getTrailsFailureAction = error => ({
+export const getTrailsFailureAction = error => ({
     type: GET_TRAILS_FAILURE,
     error
 });
@@ -43,16 +43,16 @@ export const getTrails = payload => dispatch => {
 };
 
 export const GET_TRAIL_REQUEST = "GET_TRAIL";
-const getTrailAction = () => ({
+export const getTrailAction = () => ({
     type: GET_TRAIL_REQUEST
 });
 export const GET_TRAIL_SUCCESS = "GET_TRAIL_SUCCESS";
-const getTrailSuccessAction = trail => ({
+export const getTrailSuccessAction = trail => ({
     type: GET_TRAIL_SUCCESS,
     trail
 });
 export const GET_TRAIL_FAILURE = "GET_TRAIL_FAILURE";
-const getTrailFailureAction = error => ({
+export const getTrailFailureAction = error => ({
     type: GET_TRAIL_FAILURE,
     error
 });
@@ -128,18 +128,18 @@ export const createTrail = payload => dispatch => {
 };
 
 export const UPDATE_TRAIL_REQUEST = "UPDATE_TRAIL";
-const updateTrailAction = (trailId, trail) => ({
+export const updateTrailAction = (trailId, trail) => ({
     type: UPDATE_TRAIL_REQUEST,
     trailId,
     trail
 });
 export const UPDATE_TRAIL_SUCCESS = "UPDATE_TRAIL_SUCCESS";
-const updateTrailSuccessAction = trail => ({
+export const updateTrailSuccessAction = trail => ({
     type: UPDATE_TRAIL_SUCCESS,
     trail
 });
 export const UPDATE_TRAIL_FAILURE = "UPDATE_TRAIL_FAILURE";
-const updateTrailFailureAction = error => ({
+export const updateTrailFailureAction = error => ({
     type: UPDATE_TRAIL_FAILURE,
     error
 });
@@ -174,16 +174,16 @@ export const updateTrail = payload => dispatch => {
 };
 
 export const DELETE_TRAIL_REQUEST = "DELETE_TRAIL";
-const deleteTrailAction = trailId => ({
+export const deleteTrailAction = trailId => ({
     type: DELETE_TRAIL_REQUEST,
     trailId
 });
 export const DELETE_TRAIL_SUCCESS = "DELETE_TRAIL_SUCCESS";
-const deleteTrailSuccessAction = () => ({
+export const deleteTrailSuccessAction = () => ({
     type: DELETE_TRAIL_SUCCESS
 });
 export const DELETE_TRAIL_FAILURE = "DELETE_TRAIL_FAILURE";
-const deleteTrailFailureAction = error => ({
+export const deleteTrailFailureAction = error => ({
     type: DELETE_TRAIL_FAILURE,
     error
 });

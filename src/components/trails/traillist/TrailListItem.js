@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import fourpeaks from '../traildetail/fourpeaks.jpg'
 import './index.css';
 import '../../app/common/floatgrid.css';
-class TrailListItem extends Component {
+export class TrailListItem extends Component {
     render() {
         const { trail } = this.props;//const { trail, deleteTrail } = this.props;
-        const imageUrl = trail.trailImage || fourpeaks;
+        //const imageUrl = trail.trailImage || fourpeaks;
         const divStyle = {
             WebkitTransition: 'all',
             msTransition: 'all',
@@ -30,7 +30,7 @@ class TrailListItem extends Component {
                         </span>
                     </div>
                 </Link>
-                <hr />
+
             </div>
         );
     }

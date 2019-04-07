@@ -21,16 +21,16 @@ export const logout = () => ({
 });
 
 export const SIGN_UP_REQUEST = "SIGN_UP";
-const signUpAction = () => ({
+export const signUpAction = () => ({
     type: SIGN_UP_REQUEST
 });
 export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
-const signUpSuccessAction = user => ({
+export const signUpSuccessAction = user => ({
     type: SIGN_UP_SUCCESS,
     user
 });
 export const SIGN_UP_FAILURE = "SIGN_UP_FAILURE";
-const signUpFailureAction = error => ({
+export const signUpFailureAction = error => ({
     type: SIGN_UP_FAILURE,
     error
 });
@@ -57,16 +57,16 @@ export const signUp = user => dispatch => {
 };
 
 export const LOG_IN_REQUEST = "LOG_IN";
-const logInAction = () => ({
+export const logInAction = () => ({
     type: LOG_IN_REQUEST
 });
 export const LOG_IN_SUCCESS = "LOG_IN_SUCCESS";
-const logInSuccessAction = authData => ({
+export const logInSuccessAction = authData => ({
     type: LOG_IN_SUCCESS,
     authData
 });
 export const LOG_IN_FAILURE = "LOG_IN_FAILURE";
-const logInFailureAction = error => ({
+export const logInFailureAction = error => ({
     type: LOG_IN_FAILURE,
     error
 });

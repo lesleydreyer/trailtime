@@ -35,21 +35,21 @@ export class TrailDetailInfo extends React.Component {
 
         return (
             <React.Fragment>
-                <span className="img">
+                <span className="imgfeature">
                     <img src={imageUrl} alt={trail.trailName || "jeeping on a random trail"} />
                 </span>
-                <span className="detailpageinfo">
+                <div className="detailpageinfo">
                     <h1>{trail.trailName}</h1>
-                    <p>{trail.trailDescription}</p>
+                    <p id="description">{trail.trailDescription}</p>
                     <hr className="hr" />
                     <h3>LOCATION</h3>
-                    <p>{trail.trailLocation}</p>
+                    <p id="location">{trail.trailLocation}</p>
                     <hr className="hr" />
                     <h3>RATING</h3>
-                    <p>{trail.trailRating}</p>
+                    <p id="rating">{trail.trailRating}</p>
                     {/*if user created trail give edit/delete buttons, if not have email creator */
                         this.state.loggedInUserCreatedTrail ? userCreatedTrail : userDidNotCreateTrail}
-                </span>
+                </div>
             </React.Fragment >
         )
     }

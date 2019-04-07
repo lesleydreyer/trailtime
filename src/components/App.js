@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import NavBar from './navbar/NavBar';
+//import NavBar2 from './navbar/zzzNavBar2';
 import HomePage from './home/HomePage';
 import SignUpPage from './auth/SignUpPage';
 import LogInPage from './auth/LogInPage';
@@ -9,7 +10,7 @@ import TrailCreatePage from './trails/trailcreate/TrailCreatePage';
 import TrailDetailPage from './trails/traildetail/TrailDetailPage';
 import TrailEditPage from './trails/trailedit/TrailEditPage';
 import TrailDashboard from './trails/traildashboard/TrailDashboard';
-
+import Footer from './footer/Footer';
 class App extends Component {
   render() {
     return (
@@ -31,6 +32,7 @@ class App extends Component {
                   <Route path="/trails" component={TrailDashboard} />
                 </Switch>
               </div>
+              <Footer />
             </div>
           )}
           />

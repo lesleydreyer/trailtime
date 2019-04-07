@@ -32,9 +32,7 @@ export class TrailDetailPage extends React.Component {
         }
 
         return (
-            <main role="main">
-                <TrailDetailInfo trail={trail} user={username} onTrailDelete={this.onTrailDelete} />
-            </main>
+            <TrailDetailInfo trail={trail} user={username} onTrailDelete={this.onTrailDelete} />
         );
     }
 }

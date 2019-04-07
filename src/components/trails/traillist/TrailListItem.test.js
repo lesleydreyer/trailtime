@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import TrailListItem from './TrailListItem';
 
-
 const trail = {
     id: "testid",
     trailName: "testname",
@@ -17,35 +16,64 @@ const divStyle = {
     backgroundImage: 'url(' + trail.trailImage + ')',
 };
 
+const callback = jest.fn();
+
 function setup() {
     const props = {
         trail,
         imageUrl: trail.trailImage,
-        divStyle
+        divStyle,
+        key: trail.id,
+        callback: callback
     }
-    const enzymeWrapper = shallow(<TrailListItem {...props} />)
+    const wrapper = shallow(<TrailListItem {...props} />)
     return {
         props,
-        enzymeWrapper
+        wrapper
     }
 }
 
 describe('TrailListItem', () => {
+    test('exists', () => {
+        const { wrapper } = setup();
+        expect(wrapper.exists()).toBe(true);
+    })
     test('renders outer div', () => {
-        const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.closest('div').hasClass('col-6')).toBe(true);
-    })
-    test('renders inner', () => {
-        const { enzymeWrapper } = setup();
-        expect(enzymeWrapper.find('div').length).toEqual(2);
-        expect(enzymeWrapper.find('span').length).toEqual(4);
-        expect(enzymeWrapper.find('div.trailListItem')).toHaveLength(1);
-        expect(enzymeWrapper.find('span.text')).toHaveLength(1);
-        expect(enzymeWrapper.find('span.trailName')).toHaveLength(1);
-        expect(enzymeWrapper.find('span.locationRating')).toHaveLength(1);
-        expect(enzymeWrapper.find('span.linkInfo')).toHaveLength(1);
-        expect(enzymeWrapper.find('span.linkInfo').text()).toEqual('More Info >');
-    })
+        const { wrapper } = setup();
+        expect(wrapper.closest('div').hasClass('col-6')).toBe(true);
+    });
+    test('renders inner divs and spans', () => {
+        const { wrapper } = setup();
+        console.log(wrapper.debug())
+        expect(wrapper.find('div').length).toEqual(2);
+        expect(wrapper.find('span').length).toEqual(4);
+        expect(wrapper.find('div.trailListItem')).toHaveLength(1);
+        expect(wrapper.find('span.text')).toHaveLength(1);
+        expect(wrapper.find('span.trailName')).toHaveLength(1);
+        expect(wrapper.find('span.locationRating')).toHaveLength(1);
+        expect(wrapper.find('span.linkInfo')).toHaveLength(1);
+        expect(wrapper.find('span.linkInfo').text()).toEqual('More Info >');
+    });
+    test('trail prop values passed through', () => {
+        const { wrapper } = setup();
+        expect(wrapper.find('span.trailName').text()).toEqual('testname');
+        expect(wrapper.find('span.trailName').text()).not.toEqual('aaaa');
+        expect(wrapper.find('span.locationRating').text()).toContain('testlocation');
+        expect(wrapper.find('span.locationRating').text()).not.toContain('aaaa');
+        expect(wrapper.find('span.locationRating').text()).toContain('testrating');
+        expect(wrapper.find('span.locationRating').text()).not.toContain('aaaa');
+    });
+    /*test('more info link works', () => {
+        const { wrapper } = setup();
+        const link = wrapper.find('Link');
+        //expect(wrapper.find('Link')).toHaveLength(1);
+        //link.simulate('click', { preventDefault() { } });
+        //expect(callback).toHaveBeenCalled();
+    });*/
+
+    //
+
+
 })
 
 /*let wrap;

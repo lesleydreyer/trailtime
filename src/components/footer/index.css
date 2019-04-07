@@ -1,0 +1,17 @@
+
+
+.footer {
+    border-top: 2px solid #D1B44D;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    text-align: center;
+    clear: both;
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+    font-size: .8em;
+}
+
