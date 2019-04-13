@@ -190,3 +190,37 @@ describe('deleteTrailFailureAction', () => {
         expect(action.error).not.toEqual('aaa');
     });
 });
+
+describe('createTrail', () => {
+    it('should dispatch', () => {
+        global.fetch = jest.fn().mockImplementation(() => {
+            Promise.resolve({
+                ok: true,
+                json() {
+                    return trail
+                }
+            })
+        })
+    })
+})
+/*describe('createTrail', () => {
+    it('Should dispatch createTrailSuccess', () => {
+        global.fetch = jest.fn().mockImplementation(() =>
+            Promise.resolve({
+                ok: true,
+                json() {
+                    return trail;
+                }
+            })
+        );
+
+        const dispatch = jest.fn();
+        const payload = { trail, payload: 'abc' };
+        return actions.createTrail(payload)(dispatch).then(() => {
+            expect(dispatch).toHaveBeenCalledWith(actions.createTrailAction(trail, 'CREATE_TRAIL'));
+            expect(fetch).toHaveBeenCalledWith('API/trail');
+            //expect(dispatch).toHaveBeenCalledWith(actions.createTrailSuccessAction(trail));
+        });
+    });
+});
+*/

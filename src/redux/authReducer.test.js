@@ -22,7 +22,7 @@ describe('authReducer', () => {
             username: "bobross",
             email: "bobross@gmail.com"
         },
-        jwt: '12345'
+        authToken: '12345'
     };
 
 

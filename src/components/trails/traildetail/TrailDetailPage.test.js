@@ -1,44 +1,53 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { TrailDetailPage } from './TrailDetailPage';
-import { getTrail } from '../trailActions';
-import thunk from 'redux-thunk';
-import fetchMock from 'fetch-mock';
+import { getTrail, deleteTrail } from '../trailActions';
 
-//let wrap;
-//const middlewares = [thunk];
-//const mockStore = configureMockStore(middlewares);
+const trail = {
+    id: "testid",
+    trailName: "testname",
+    trailRating: "testrating",
+    trailLocation: "testlocation",
+    trailDescripion: "testdescription",
+    trailImage: "testimage"
+};
+
+const jwt = 'abc';
+const match = { params: { id: '123' } };
+const dispatch = jest.fn();
+const wrap = shallow(<TrailDetailPage dispatch={dispatch} jwt={jwt} match={match} trail={trail} />);
+
 
 describe('TrailDetailPage', () => {
+
     test('exists', () => {
-        const dispatch = () => { };
-        const jwt = '123';
-        const match = { params: { id: '123' } };
-        wrap = shallow(<TrailDetailPage dispatch={dispatch} jwt={jwt} match={match} />);
         expect(wrap.exists()).toBe(true);
-        //expect(wrap.find('p')).toBe(true)
     });
 
-    test('Dispatches getTrail', () => {
-        const jwt = '123';
-        const match = { params: { id: '123' } };
-        const dispatch = jest.fn();
-        const wrapper = shallow(<TrailDetailPage dispatch={dispatch} jwt={jwt} match={match} />);
-        //const instance = wrapper.instance();
-        wrapper.getTrail(jwt, match);
-        expect(dispatch).toHaveBeenCalledWith(getTrail(jwt, match));
-
-    })
-    /* 
-        it('Dispatches addCard from addCard', () => {
-        
-        const wrapper = shallow(
-            <List cards={[]} index={index} dispatch={dispatch} />
+    test('Shows Loading if no trail', () => {
+        const initialwrap = shallow(
+            <TrailDetailPage
+                dispatch={dispatch}
+                jwt={jwt}
+                match={match} />
         );
-        const instance = wrapper.instance();
-        const text = seedCards[0].text;
-        instance.addCard(text);
-        expect(dispatch).toHaveBeenCalledWith(addCard(text, index));
+        expect(initialwrap.find('p').length).toBe(1);
+        expect(initialwrap.find('p').text()).toBe('Loading...');
     });
-    */
-})
+
+    test('getTrail dispatch works', () => {
+        dispatch.mockClear();
+        getTrail({ trail: trail, jwt: jwt })(dispatch);
+        expect(dispatch).toHaveBeenCalled();
+        expect(dispatch.mock.calls.length).toBe(1);
+        dispatch.mockClear();
+    });
+
+    it('deleteTrail dispatch works', () => {
+        dispatch.mockClear();
+        deleteTrail({ trailId: trail.id, jwt: jwt })(dispatch);
+        expect(dispatch).toHaveBeenCalled();
+        expect(dispatch.mock.calls.length).toBe(1);
+        dispatch.mockClear();
+    });
+});

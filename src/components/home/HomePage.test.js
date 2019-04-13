@@ -15,6 +15,6 @@ describe('Home Page', () => {
     test('', () => {
         //expect(wrap.find('div.bg')).toHaveLength(1);
         expect(wrap.find('div.bg').length).toEqual(1);
-        expect(wrap.find('header.banner').length).toEqual(1);
+        //expect(wrap.find('header.banner').length).toEqual(1);
     })
 })

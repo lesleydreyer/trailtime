@@ -29,6 +29,18 @@ describe('TrailEditForm', () => {
     });
 });
 
+/*test('submits', () => {
+    const callback = jest.fn();
+    const wrapper = mount(<TrailEditForm onSubmit={callback} />);
+    const values = { trailName: trail.trailName, trailRating: trail.trailRating, trailLocation: trail.trailLocation, trailDescripion: trail.trailLocation };
+    console.log(wrapper.debug());
+    wrapper.instance().values = values;
+    wrapper.instance().jwt = match.jwt;
+    wrapper.simulate('submit');
+    expect(callback).toHaveBeenCalled();
+    wrapper.unmount();
+})*/
+
 /*describe('TrailEditForm inputs', () => {
     test('renders trailName input correct', () => {
         const wrap = mount(<input name="trailName" placeholder="name of trail" />);

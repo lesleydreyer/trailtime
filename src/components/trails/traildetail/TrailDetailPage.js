@@ -10,7 +10,7 @@ export class TrailDetailPage extends React.Component {
                 jwt: this.props.jwt,
                 trailId: this.props.match.params.id
             })
-        )
+        );
     }
 
     onTrailDelete = () => {
@@ -28,7 +28,7 @@ export class TrailDetailPage extends React.Component {
     render() {
         const { trail, username } = this.props;
         if (!trail) {
-            return <p>Loading ...</p>;
+            return <p>Loading...</p>;
         }
 
         return (

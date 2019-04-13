@@ -1,15 +1,16 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-//import sinon from 'sinon';
 import { TrailDashboard } from './TrailDashboard';
-import TrailList from '../traillist/TrailList';
+import { getTrails } from '../trailActions';
+
 
 let wrap;
+let jwt;
 
 describe('TrailDashboard', () => {
     beforeEach(() => {
         const getTrails = () => { };
-        const jwt = 'abc';
+        jwt = 'abc';
         const trails = [
             {
                 trailName: 'test1',
@@ -35,23 +36,21 @@ describe('TrailDashboard', () => {
         ]
         wrap = shallow(<TrailDashboard getTrails={getTrails} jwt={jwt} trails={trails} />);
     });
+
     test('exists', () => {
         console.log(wrap.debug())
         expect(wrap.exists()).toBe(true);
     });
+
     test('renders TrailList', () => {
         expect(wrap.find('TrailList').length).toEqual(1);
     });
 
-    //expect(wrap.containsMatchingElement(<div className="gallery"></div>)).toEqual(true);//to.equal(true)
-    //test('it calls componentdidmount', () => {
-    //const callback = jest.fn;
-    //const spy = jest.spy
-    //const wrapper = mount(<TrailDashboard />);
-    // sinon.spy(TrailDashboard.prototype, 'componentDidMount');
-    // const wrapper = mount(<TrailDashboard />);
-    // expect(TrailDashboard.prototype.componentDidMount).to.have.property('callCount', 1);
-    //})
+    test('getTrails works', () => {
+        const dispatch = jest.fn();
+        dispatch.mockClear();
+        getTrails({ jwt })(dispatch);//or * as actions at top and actions.getTrails here
+        expect(dispatch.mock.calls.length).toEqual(1);
+        dispatch.mockClear();
+    });
 });
-
-//https://airbnb.io/enzyme/docs/api/mount.html

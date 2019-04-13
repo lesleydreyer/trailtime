@@ -125,6 +125,8 @@ svg {
     z-index: 100;
 }
 
+
+
 body {
     padding-top: 70px;
 }
@@ -166,7 +168,7 @@ li a:active {
   float: left;
   padding-top: 10px;
   padding-bottom: 10px;
-  /*width: 30vw;*/
+  width: 30vw;
   /*background-color: aquamarine;*/
 }
 
@@ -177,18 +179,35 @@ li a:active {
 .navbar-middle {
     margin: 0 auto;
     width: 40vw;
-    object-fit: contain;
-    /*background-color: cornsilk;*/
+    /*object-fit: contain;
+    background-color: cornsilk;*/
 }
-.navlink {
-    object-fit: contain;
-}
+
 
 .navbar-right {
   float: right;
-  margin-right: 10px;
-  /*width: 30vw;*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 25vw;
   /*background-color: pink;*/
+}
+
+
+.navbar-right > .navlink {
+    margin-right: 10px;
+}
+
+.middleIcons {
+    width: 100%;
+    object-fit: contain;
+}
+
+.leftIcons {
+    width: 25%;
+}
+.rightIcons {
+    object-fit: contain;
+    max-width: 70%;
 }
 
 
@@ -198,6 +217,9 @@ li a:active {
    
 .col-4nav:nth-of-type(3n+1) {
     clear: left;
+}
+
+@media  (min-width: 768px) {
 }
 
 

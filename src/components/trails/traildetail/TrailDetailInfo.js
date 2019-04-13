@@ -16,18 +16,19 @@ export class TrailDetailInfo extends React.Component {
     }
 
     render() {
+        //console.log('PROPS', this.props)
         const { trail } = this.props;
 
         const userCreatedTrail = (
             <React.Fragment>
-                <Link to={`/edit/${trail.id}`}><button>Edit Trail Info</button></Link>&nbsp;&nbsp;
-                <button onClick={this.props.onTrailDelete}>Delete Trail</button>
+                <Link to={`/edit/${trail.id}`}><button id="editTrailButton">Edit Trail Info</button></Link>&nbsp;&nbsp;
+                <button id="deleteTrailButton" onClick={this.props.onTrailDelete}>Delete Trail</button>
             </React.Fragment>
         );
 
         const userDidNotCreateTrail = (
             <React.Fragment>
-                <a href={`mailto:${trail.user.email}?Subject=Edits%20for%20${trail.trailName}`}><button>Email Trail Creator Your Suggested Updates</button></a>&nbsp;&nbsp;
+                <a href={`mailto:${trail.user.email}?Subject=Edits%20for%20${trail.trailName}`}><button id="emailCreatorButton">Email Trail Creator Your Suggested Updates</button></a>&nbsp;&nbsp;
             </React.Fragment>
         )
 

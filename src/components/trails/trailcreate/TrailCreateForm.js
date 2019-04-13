@@ -2,7 +2,9 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import './index.css';
 
+//application logic - code the library/framework provides
 export const TrailCreateForm = (props) => {
+    //busisness logic - code  you provide is what you would test since the application logic is already tested by the library or framework assumingly
     return (
         <form id='trail-create-form' onSubmit={props.handleSubmit}>
             <label htmlFor="trailName">Trail Name</label> <br />
@@ -20,6 +22,7 @@ export const TrailCreateForm = (props) => {
     )
 }
 
+//application logic
 export default reduxForm({
     form: 'createtrail'
 })(TrailCreateForm)

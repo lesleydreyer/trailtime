@@ -3,7 +3,7 @@ import './index.css';
 import logo from './images/logo2.svg';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { Footer } from '../footer/Footer';
+//import { Footer } from '../footer/Footer';
 
 export const HomePage = (props) => {
     const { history, isLoggedIn } = props;
@@ -23,13 +23,15 @@ export const HomePage = (props) => {
                     <div className="homePageInfo">
                         <span className="info">
                             Discover off road trails and add your own!
-                            Eventually I would like to add the ability to add photos, calendar events  and comments.
-                        <button className="loginbtn" onClick={() => history.push('/login')} type="button">Start Adventuring > </button>
+                            Eventually I would like to add the ability to add photos, calendar events  and comments.<br /><br />
+                            <button className="loginbtn" onClick={() => history.push('/login')} type="button">Start Adventuring > </button>
                         </span>
                     </div><br /><br />
                 </main>
             </div>
-            <Footer />
+            <div className="footerIntroHomePage">
+                © 2019 Lesley Dreyer
+            </div>
         </React.Fragment>
     )
 }

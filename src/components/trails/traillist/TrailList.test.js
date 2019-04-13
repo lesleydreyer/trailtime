@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import { TrailList } from './TrailList';
-import TrailListItem from './TrailListItem';
 
 let wrap;
 
@@ -37,7 +36,7 @@ describe('Trail List', () => {
     });
 
     test('exists', () => {
-        console.log(wrap.debug());
+        //console.log(wrap.debug());
         expect(wrap.exists()).toBe(true);
     });
 

@@ -9,9 +9,9 @@ import logo from '../home/images/logo2.svg';
 import addtrailicon from './icons/OldSvgImageFiles/addtrailicon.svg';
 import viewtrailicon from './icons/OldSvgImageFiles/viewtrailsicon.svg';
 import logouticon from './icons/OldSvgImageFiles/logouticon.svg';
-import AddTrailIconSVG from './icons/AddTrailIcon';
-import ListTrailsIconSVG from './icons/ListTrailsIcon';
-import LogOutIconSVG from './icons/LogOutIcon';
+//import AddTrailIconSVG from './icons/AddTrailIcon';
+//import ListTrailsIconSVG from './icons/ListTrailsIcon';
+//import LogOutIconSVG from './icons/LogOutIcon';
 //https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91
 export class NavBar extends React.Component {
 
@@ -54,14 +54,14 @@ export class NavBar extends React.Component {
             <React.Fragment>
                 <div className="navbar">
                     <div className="navbar-left col-4nav">
-                        <NavLink className="navlink" to="/trails"><img id="view" src={viewtrailicon} alt="View List of Trails" /></NavLink>
-                        <NavLink className="navlink" to="/create"><img id="add" src={addtrailicon} alt="Add a Trail" /></NavLink>
+                        <NavLink className="navlink" to="/trails"><img id="view" className="leftIcons" src={viewtrailicon} alt="View List of Trails" /></NavLink>
+                        <NavLink className="navlink" to="/create"><img id="add" className="leftIcons" src={addtrailicon} alt="Add a Trail" /></NavLink>
                     </div>
                     <div className="navbar-middle col-4nav">
-                        <NavLink id="trailtimelogo" to="/"><img src={logo} alt="logo" /></NavLink>
+                        <NavLink id="trailtimelogo" to="/"><img className="middleIcons" src={logo} alt="logo" /></NavLink>
                     </div>
                     <div className="navbar-right col-4nav">
-                        <NavLink className="navlink" to="/" onClick={this.logout.bind(this)}><img id="add" src={logouticon} alt="Log Out" /></NavLink>
+                        <NavLink className="navlink" to="/" onClick={this.logout.bind(this)}><img className="rightIcons" id="logout" src={logouticon} alt="Log Out" /></NavLink>
                     </div>
                 </div><br /><br /><br />
             </React.Fragment>

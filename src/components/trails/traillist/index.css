@@ -8,9 +8,9 @@ body {
   margin: 0 auto;
 }
 
-
 .trailListItem {
-   /*outline: solid 1px #848c3c;
+   /*DIFFERENT IDEAS TO PLAY AROUND WITH LATER
+   outline: solid 1px #848c3c;
   outline-offset: 5px;
   margin: 10px;
   box-shadow: 5px 5px #848c3c;
@@ -48,7 +48,7 @@ body {
 }
 
 .trailName {
-  font-family: intro, homemadefont, montserrat, arvo, just me again down here, montserrat;
+  font-family: intro, montserrat, sans-serif;
   font-weight: 100;
   letter-spacing: .05em;
   font-size: 1.6em;
@@ -73,6 +73,7 @@ a {
   margin-bottom: 10px;
   font-size: .7em;
 }
+
 .linkInfo {
   padding: 5px;
   display: inline-block;
@@ -85,12 +86,13 @@ a {
   border: 1px solid white;
   font-size: .8em;
 }
-.trailListItem:hover .linkInfo{
+
+.trailListItem:hover .linkInfo {
   border: 1px solid white;
   background-color: white;
   color: black;
   text-shadow: none;
-  /*
+  /*diff ideas to play with later
     border: 1px solid transparent;
   background-color: #848c3c;
   text-shadow: none;
@@ -100,29 +102,27 @@ a {
 
 /*wider screens make fonts a bit bigger*/
 @media screen and (min-width: 767px) and (orientation : landscape) {
- .trailName {
-  font-size: 2em;
-}
-.locationRating {
-  font-size: 1em;
-}
+  .trailName {
+    font-size: 2em;
+  }
+  .locationRating {
+    font-size: 1em;
+  }
 }
 
 
 /*don't think screens are usually this small but just in case*/
 @media screen and (max-width: 270px) {
-   .trailName {
-  font-size: .9em;
-}
-.locationRating {
-  font-size: .6em;
-}
-.linkInfo{
-  font-size: .6em;
-}
-
-.trailListItem {
-  margin: 2px;
-}
-  
+  .trailName {
+    font-size: .9em;
+  }
+  .locationRating {
+    font-size: .6em;
+  }
+  .linkInfo {
+    font-size: .6em;
+  }
+  .trailListItem {
+    margin: 2px;
+  }
 }

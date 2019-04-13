@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { NavBar } from './NavBar';
+import { logout } from '../auth/authActions';
 
 let wrap;
 

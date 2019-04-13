@@ -1,12 +1,15 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { TrailDetailInfo } from './TrailDetailInfo';
+import { deleteTrail } from '../trailActions';
 
 describe('TrailDetailInfo', () => {
     const getTrail = () => { };
     const onTrailDelete = () => { };
-    //this.props.trail.user._id === this.props.user)
-    const _id = { trail: { user: { _id: '123' } } };
+
+    const user = { id: '123' };
+    const jwt = { jwt: 'abc' };
+
     const trail = {
         id: "testid",
         trailName: "testname",
@@ -15,32 +18,27 @@ describe('TrailDetailInfo', () => {
         trailDescription: "testdescription",
         trailImage: "testimage",
         user: {
-            id: '123',
+            _id: '123',
             username: 'testname',
             email: 'test@gmail.com'
         }
     }
-    const wrap = shallow(<TrailDetailInfo
-        getTrail={getTrail}
-        onTrailDelete={onTrailDelete}
-        _id={_id}
-        user={trail.user}
-        trail={trail} />);
 
-
-    const _id2 = { trail: { user: { _id: '456' } } }
-    const loggedInWrap = shallow(<TrailDetailInfo
-        getTrail={getTrail}
-        onTrailDelete={onTrailDelete}
-        _id={_id2}
-        user={trail.user}
-        trail={trail} />);
-
+    const wrap = shallow(
+        <TrailDetailInfo
+            getTrail={getTrail}
+            onTrailDelete={onTrailDelete}
+            user={user}
+            trail={trail}
+        />
+    );
 
     test('exists', () => {
         expect(wrap.exists()).toBe(true);
     });
-    console.log(wrap.debug())
+
+    //console.log(wrap.debug())
+
     test('renders passed in prop values', () => {
         expect(wrap.find('img').prop('src')).toBe('testimage');
         expect(wrap.find('h1').text()).toBe('testname');
@@ -48,17 +46,45 @@ describe('TrailDetailInfo', () => {
         expect(wrap.find('#location').text()).toBe('testlocation');
         expect(wrap.find('#rating').text()).toBe('testrating');
     });
-    test('renders correct buttons if logged out', () => {
-        expect(wrap.find('button').text()).toBe('Email Trail Creator Your Suggested Updates');
-        expect(wrap.find('button').text()).not.toBe('Delete Trail');
-        expect(wrap.find('button').text()).not.toBe('Edit Trail');
+
+
+    test('logged out state is correct', () => {
+        expect(wrap.instance().state.loggedInUserCreatedTrail).toEqual(false);
     });
-    test('renders correct buttons if logged in', () => {
-        console.log(loggedInWrap.debug())
-        //console.log('STATE', loggedInWrap.state)
-        //loggedInWrap.setState({ auth: { isLoggedIn: true } })
-        expect(loggedInWrap.find('button').text()).not.toBe('Email Trail Creator Your Suggested Updates');
-        expect(loggedInWrap.find('button').text()).toBe('Delete Trail');
-        expect(loggedInWrap.find('button').text()).toBe('Edit Trail');
-    })
-})
+
+    test('if user created trail set state', () => {
+        if (trail.user._id === user.id) {
+            wrap.instance().setState({ loggedInUserCreatedTrail: true });
+            expect(wrap.instance().state.loggedInUserCreatedTrail).toEqual(true);
+            wrap.instance().setState({ loggedInUserCreatedTrail: false });//reset to default false for other tests
+        } else {
+            expect(wrap.instance().state.loggedInUserCreatedTrail).toEqual(false);
+        }
+    });
+
+
+    test('renders correct buttons if user did not create trail', () => {
+        expect(wrap.find('#emailCreatorButton').text()).toBe('Email Trail Creator Your Suggested Updates');
+        expect(wrap.find('#emailCreatorButton').length).toBe(1);
+        expect(wrap.find('#deleteTrailButton').length).toBe(0);//.text()).not.toBe('Delete Trail');
+        expect(wrap.find('#editTrailButton').length).toBe(0);//.text()).not.toBe('Edit Trail');
+    });
+
+    test('renders correct buttons if user created trail', () => {
+        wrap.setState({ loggedInUserCreatedTrail: true });
+        expect(wrap.find('#emailCreatorButton').length).toBe(0);//.text()).not.toBe('Email Trail Creator Your Suggested Updates');
+        expect(wrap.find('#deleteTrailButton').text()).toBe('Delete Trail');
+        expect(wrap.find('#deleteTrailButton').length).toBe(1);
+        expect(wrap.find('#editTrailButton').text()).toBe('Edit Trail Info');
+        expect(wrap.find('#editTrailButton').length).toBe(1);
+    });
+
+
+    test('deleteTrail dispatches', () => {
+        const dispatch = jest.fn();
+        dispatch.mockClear();
+        deleteTrail({ trailId: trail.id, jwt: jwt })(dispatch);
+        expect(dispatch.mock.calls.length).toEqual(1);
+        dispatch.mockClear();
+    });
+});

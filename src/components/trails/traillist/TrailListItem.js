@@ -6,11 +6,11 @@ import '../../app/common/floatgrid.css';
 export class TrailListItem extends Component {
     render() {
         const { trail } = this.props;//const { trail, deleteTrail } = this.props;
-        //const imageUrl = trail.trailImage || fourpeaks;
+        const imageUrl = trail.trailImage || fourpeaks;
         const divStyle = {
             WebkitTransition: 'all',
             msTransition: 'all',
-            backgroundImage: 'url(' + (trail.trailImage || fourpeaks) + ')',
+            backgroundImage: 'url(' + (imageUrl) + ')',
         };
         return (
             <div className="col-6">
