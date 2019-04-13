@@ -3,12 +3,12 @@ import './index.css';
 import logo from './images/logo2.svg';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-//import { Footer } from '../footer/Footer';
 
 export const HomePage = (props) => {
     const { history, isLoggedIn } = props;
     if (isLoggedIn) {
         return <Redirect to="/trails"></Redirect>
+        //testing travis
     }
 
     return (
