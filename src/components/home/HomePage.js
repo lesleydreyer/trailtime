@@ -19,7 +19,7 @@ export const HomePage = (props) => {
                     <div className="row">
                     </div>
                 </header>
-                <main role="main">
+                <main role="main" className="main">
                     <div className="homePageInfo">
                         <span className="info">
                             Discover off road trails and add your own!

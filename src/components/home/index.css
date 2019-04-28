@@ -4,21 +4,24 @@ html {
 }
 .test{background-color: magenta;}
 
-
+.main {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
 .bg {
   background-image: url('./images/silverton.jpg');
-  width: 100%;
-  height: 80%;
+  width: 100vw;
+  height: 80vh;
   background-position: top;
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  position: fixed;
+  position: relative;
   top: -30px;
   clear: both;
       margin: 0 0 100px;
     /* bottom = footer height */
-    padding: 25px;
 }
 
 header {
@@ -42,9 +45,8 @@ header {
   padding: 20px;
   max-width: 80vw;
   width: auto;
-  position: absolute;
+  position: relative;
   margin: 0 auto;
-   display: flex;
   align-items: center
   /*margin-top: 300px;
   margin-left: 20px;
