@@ -1,6 +1,10 @@
 # Trail Time
 by Lesley Dreyer
 demo at https://trailtime.herokuapp.com/
+demo username: user1    
+demo password: user1234
+
+API code: https://github.com/lesleydreyer/trailtime-api
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
