@@ -12,7 +12,7 @@ export const SignUpForm = (props) => {
                 <Field className="input" component='input' name="username"
                     placeholder="Enter your username" required /><br />
                 <label className="label" htmlFor="password">Password</label><br />
-                <Field className="input" component='input' name="password"
+                <Field className="input" component='input' name="password" type="password"
                     placeholder="Enter your password" required /><br />
                 <label className="label" htmlFor="email">Email</label><br />
                 <Field className="input" component='input' name="email"
