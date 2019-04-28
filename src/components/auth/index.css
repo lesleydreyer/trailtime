@@ -1,11 +1,9 @@
 fieldset {
-    position: absolute;
     margin-top: 100px;
     width: 80vw;
     margin: 0 auto;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
     padding: 20px;
     border: none;
 }
