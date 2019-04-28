@@ -1,8 +1,8 @@
 # Trail Time
-by Lesley Dreyer
-demo at https://trailtime.herokuapp.com/
-demo username: user1    
-demo password: user1234
+by Lesley Dreyer <br>
+demo at https://trailtime.herokuapp.com/ <br>
+demo username: user1 <br>
+demo password: user1234 <br>
 
 API code: https://github.com/lesleydreyer/trailtime-api
 
