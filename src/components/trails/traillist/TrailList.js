@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TrailListItem from './TrailListItem';
 export class TrailList extends Component {
     render() {
+        console.log('listiemprops', this.props)
         const { trails } = this.props;
         return (
             <div className="gallery">

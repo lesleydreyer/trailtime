@@ -6,7 +6,7 @@ demo password: user1234 <br>
 
 API code: https://github.com/lesleydreyer/trailtime-api
 
-This is a project I created to help learn React and Redux with the help of a mentor Sergei Garcia. It allows the user to create an account, view a list of trails, and add their own trails to the list as well. It is a CRUD application as the user can also edit and delete trails that they created. Continous integration testing has been set up through travis-ci.com and it has been deployed to heroku.
+This is a project I created to help learn React and Redux with the help of mentor Sergei Garcia. It allows the user to create an account, view a list of trails, and add their own trails to the list as well. It is a full CRUD application, as it also allows the user to edit and delete trails in which they created. Continuous integration testing has been set up through travis-ci.com and it has been deployed to heroku. The API code can be found above. It was created with Express, Node.js, and MongoDB.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
