@@ -14,9 +14,9 @@ export const TrailCreateForm = (props) => {
             <label htmlFor="trailLocation">Trail Location</label> <br />
             <Field name="trailLocation" component='input' placeholder="Location of Trail" /> <br />
             <label htmlFor="trailDescription">Trail Description</label> <br />
-            <Field name="trailDescription" component='input' placeholder="Description of Trail" /> <br />
+            <Field name="trailDescription" component='textarea' rows='4' placeholder="Description of Trail" /> <br />
             <label htmlFor="trailImage">Trail Image</label> <br />
-            <Field name="trailImage" component='input' placeholder="Image URL (right click copy address)" /> <br />
+            <Field name="trailImage" component='input' placeholder="Image URL (right click to copy address)" /> <br />
             <button type="submit">Submit Trail</button>
         </form>
     )

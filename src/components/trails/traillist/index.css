@@ -43,9 +43,6 @@ body {
   opacity: 0.5;
 }
 
-.trailListItem:hover {
-  cursor: pointer;
-}
 
 .trailName {
   font-family: intro, montserrat, sans-serif;
@@ -87,7 +84,7 @@ a {
   font-size: .8em;
 }
 
-.trailListItem:hover .linkInfo {
+.linkInfo:hover {
   border: 1px solid white;
   background-color: white;
   color: black;

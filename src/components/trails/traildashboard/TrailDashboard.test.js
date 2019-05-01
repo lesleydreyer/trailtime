@@ -6,11 +6,12 @@ import { getTrails } from '../trailActions';
 
 let wrap;
 let jwt;
+let auth;
 
 describe('TrailDashboard', () => {
     beforeEach(() => {
         const getTrails = () => { };
-        jwt = 'abc';
+        auth = { jwt: 'abc' };
         const trails = [
             {
                 trailName: 'test1',
@@ -34,7 +35,7 @@ describe('TrailDashboard', () => {
                 trailImageUrl: 'test3'
             }
         ]
-        wrap = shallow(<TrailDashboard getTrails={getTrails} jwt={jwt} trails={trails} />);
+        wrap = shallow(<TrailDashboard getTrails={getTrails} auth={auth} trails={trails} />);
     });
 
     test('exists', () => {
@@ -42,14 +43,11 @@ describe('TrailDashboard', () => {
         expect(wrap.exists()).toBe(true);
     });
 
-    test('renders TrailList', () => {
-        expect(wrap.find('TrailList').length).toEqual(1);
-    });
-
+  
     test('getTrails works', () => {
         const dispatch = jest.fn();
         dispatch.mockClear();
-        getTrails({ jwt })(dispatch);//or * as actions at top and actions.getTrails here
+        getTrails({ auth })(dispatch);//or * as actions at top and actions.getTrails here
         expect(dispatch.mock.calls.length).toEqual(1);
         dispatch.mockClear();
     });

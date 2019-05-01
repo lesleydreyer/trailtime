@@ -12,10 +12,10 @@ const trail = {
     trailImage: "testimage"
 };
 
-const jwt = 'abc';
+const auth = { jwt: 'abc' };
 const match = { params: { id: '123' } };
 const dispatch = jest.fn();
-const wrap = shallow(<TrailDetailPage dispatch={dispatch} jwt={jwt} match={match} trail={trail} />);
+const wrap = shallow(<TrailDetailPage dispatch={dispatch} auth={auth} match={match} trail={trail} />);
 
 
 describe('TrailDetailPage', () => {
@@ -28,7 +28,7 @@ describe('TrailDetailPage', () => {
         const initialwrap = shallow(
             <TrailDetailPage
                 dispatch={dispatch}
-                jwt={jwt}
+                auth={auth}
                 match={match} />
         );
         expect(initialwrap.find('p').length).toBe(1);
@@ -37,7 +37,7 @@ describe('TrailDetailPage', () => {
 
     test('getTrail dispatch works', () => {
         dispatch.mockClear();
-        getTrail({ trail: trail, jwt: jwt })(dispatch);
+        getTrail({ trail: trail, auth: auth })(dispatch);
         expect(dispatch).toHaveBeenCalled();
         expect(dispatch.mock.calls.length).toBe(1);
         dispatch.mockClear();
@@ -45,7 +45,7 @@ describe('TrailDetailPage', () => {
 
     it('deleteTrail dispatch works', () => {
         dispatch.mockClear();
-        deleteTrail({ trailId: trail.id, jwt: jwt })(dispatch);
+        deleteTrail({ trailId: trail.id, auth: auth })(dispatch);
         expect(dispatch).toHaveBeenCalled();
         expect(dispatch.mock.calls.length).toBe(1);
         dispatch.mockClear();

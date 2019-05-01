@@ -11,7 +11,7 @@ export class TrailEditPage extends React.Component {
         this.props.getTrail({
             jwt: this.props.jwt,
             trailId: this.props.match.params.id
-        });
+        })
     }
 
     onEditTrailFormSubmit = (values) => {

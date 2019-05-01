@@ -7,6 +7,7 @@ describe('TrailDetailInfo', () => {
     const getTrail = () => { };
     const onTrailDelete = () => { };
 
+    const auth = {user: { id: '123' }}
     const user = { id: '123' };
     const jwt = { jwt: 'abc' };
 
@@ -28,7 +29,7 @@ describe('TrailDetailInfo', () => {
         <TrailDetailInfo
             getTrail={getTrail}
             onTrailDelete={onTrailDelete}
-            user={user}
+            auth={auth}
             trail={trail}
         />
     );
@@ -49,6 +50,7 @@ describe('TrailDetailInfo', () => {
 
 
     test('logged out state is correct', () => {
+        wrap.instance().setState({ loggedInUserCreatedTrail: false });
         expect(wrap.instance().state.loggedInUserCreatedTrail).toEqual(false);
     });
 

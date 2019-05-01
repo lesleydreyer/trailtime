@@ -3,11 +3,12 @@ import './index.css';
 import { connect } from 'react-redux';
 import TrailDetailInfo from './TrailDetailInfo';
 import { getTrail, deleteTrail } from '../trailActions';
+
 export class TrailDetailPage extends React.Component {
     componentDidMount() {
         this.props.dispatch(
             getTrail({
-                jwt: this.props.jwt,
+                jwt: this.props.auth.jwt,
                 trailId: this.props.match.params.id
             })
         );
@@ -16,7 +17,7 @@ export class TrailDetailPage extends React.Component {
     onTrailDelete = () => {
         this.props.dispatch(
             deleteTrail({
-                jwt: this.props.jwt,
+                jwt: this.props.auth.jwt,
                 trailId: this.props.trail.id
             })
         ).then(() => {
@@ -26,20 +27,20 @@ export class TrailDetailPage extends React.Component {
     }
 
     render() {
-        const { trail, username } = this.props;
+        const { trail, auth } = this.props;
         if (!trail) {
             return <p>Loading...</p>;
         }
 
         return (
-            <TrailDetailInfo trail={trail} user={username} onTrailDelete={this.onTrailDelete} />
+            <TrailDetailInfo trail={trail} auth={auth} onTrailDelete={this.onTrailDelete} />
         );
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        jwt: state.auth.jwt,
+        auth: state.auth,
         trail: state.trail.trailDetails
     }
 }

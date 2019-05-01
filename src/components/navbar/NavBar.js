@@ -5,14 +5,10 @@ import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import { logout } from '../auth/authActions';
 import logo from '../home/images/logo2.svg';
-//import '../app/common/floatgrid.css';
 import addtrailicon from './icons/OldSvgImageFiles/addtrailicon.svg';
 import viewtrailicon from './icons/OldSvgImageFiles/viewtrailsicon.svg';
 import logouticon from './icons/OldSvgImageFiles/logouticon.svg';
-//import AddTrailIconSVG from './icons/AddTrailIcon';
-//import ListTrailsIconSVG from './icons/ListTrailsIcon';
-//import LogOutIconSVG from './icons/LogOutIcon';
-//https://blog.lftechnology.com/using-svg-icons-components-in-react-44fbe8e5f91
+
 export class NavBar extends React.Component {
 
     logout() {
@@ -26,24 +22,11 @@ export class NavBar extends React.Component {
             <React.Fragment>
                 <div className="navbar">
                     <div className="navbar-left col-4nav">
-                        <ul>
-                            <li>
-                                <NavLink className="navlink" to="/login">Log In to view trails</NavLink>
-                            </li>
-                        </ul>
                     </div>
                     <div className="navbar-middle col-4nav">
                         <NavLink id="trailtimelogo" to="/"><img src={logo} alt="logo" /></NavLink>
                     </div>
                     <div className="navbar-right col-4nav">
-                        <ul>
-                            <li>
-                                <NavLink className="navlink" to="/login">Log In</NavLink>
-                            </li>
-                            <li>
-                                <NavLink className="navlink" to="/signup">Sign Up</NavLink>
-                            </li>
-                        </ul>
                     </div>
                 </div><br /><br /><br />
             </React.Fragment>
@@ -65,20 +48,6 @@ export class NavBar extends React.Component {
                     </div>
                 </div><br /><br /><br />
             </React.Fragment>
-            /*<React.Fragment>
-                <div className="navbar">
-                    <div className="col-4"><span><div className="leftlinks">
-                        <NavLink className="navlink" to="/trails"><ListTrailsIconSVG preserveAspectRatio="xMinYMin meet" className="img" width="100%" height="100%" /></NavLink>
-                        <NavLink className="navlink" to="/create"><AddTrailIconSVG preserveAspectRatio="xMinYMin meet" className="img" width="100%" height="100%" /></NavLink>
-                    </div></span></div>
-                    <div className="col-4">
-                        <NavLink id="trailtimelogo" to="/"><img className="img" src={logo} alt="logo" /></NavLink>
-                    </div>
-                    <div className="col-4">
-                        <NavLink className="navlink" to="/" onClick={this.logout.bind(this)}><LogOutIconSVG /></NavLink>
-                    </div>
-                </div><br /><br /><br />
-            </React.Fragment>*/
         ) : null;
 
         return (

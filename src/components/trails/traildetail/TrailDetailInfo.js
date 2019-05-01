@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import './index.css';
 import '../../app/common/floatgrid.css';
 import fourpeaks from './fourpeaks.jpg'
@@ -10,19 +8,18 @@ export class TrailDetailInfo extends React.Component {
     state = { loggedInUserCreatedTrail: false };
 
     componentDidMount() {
-        if (this.props.trail.user._id === this.props.user) {
+        if (this.props.trail.user._id === this.props.auth.user.id) {
             this.setState({ loggedInUserCreatedTrail: true });
         }
     }
 
     render() {
-        //console.log('PROPS', this.props)
-        const { trail } = this.props;
+        const { trail, onTrailDelete } = this.props;
 
         const userCreatedTrail = (
             <React.Fragment>
                 <Link to={`/edit/${trail.id}`}><button id="editTrailButton">Edit Trail Info</button></Link>&nbsp;&nbsp;
-                <button id="deleteTrailButton" onClick={this.props.onTrailDelete}>Delete Trail</button>
+                <button id="deleteTrailButton" onClick={onTrailDelete}>Delete Trail</button>
             </React.Fragment>
         );
 
@@ -56,17 +53,4 @@ export class TrailDetailInfo extends React.Component {
     }
 }
 
-
-
-const mapStateToProps = (state) => {
-    return {
-        jwt: state.auth.jwt,
-        trail: state.trail.trailDetails,
-        user: state.auth.user.id
-    }
-}
-
-
-export default withRouter(
-    connect(mapStateToProps)(TrailDetailInfo)
-);
+export default TrailDetailInfo;

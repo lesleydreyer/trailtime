@@ -1,3 +1,5 @@
+
+
 button {
     background-color: #3B2974;
     color: white;
@@ -21,7 +23,7 @@ label {
     font-weight: bold;
 }
 
-input {
+input, textarea {
     margin-bottom: 20px;
     margin-top: 2px;
     padding: 5px;
