@@ -1,117 +1,43 @@
-/*
-
-li a {
-    color: #3B2974;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.navbarWide {
+    display: none;
 }
 
-.navbar {
-    background-image: url('./images/dirtsplash.svg');
-    width: 100%;
-    height: 25%;
-    min-height: auto;
-    background-position: top;
-    background-attachment: fixed;
-    background-size: 100%;
-    background-repeat: no-repeat;
-    position: fixed;
-    top: 0px;
-    z-index: 100;
+.navbar-top-mobile {
+    background-color: #D1B44D;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
-body {
-    padding-top: 70px;
-}
-
-
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li a:hover {
-    color: #3B2974;
-}
-
-li a:active {
-    background-color: gray;
-}
-
-
-
-
-
-.navlink:hover{
-    filter: brightness(0) invert(1);
-}
-
-.navbar-left {
-  float: left;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 40%;
-}
-
-.navbar-middle {
+.navlinkmobile {
     margin: 0 auto;
-    width: 40%;
-}
-img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-}
-svg {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
+    text-decoration: none;
+    color: black;
+    font-family: intro, montserrat, sans-serif;
+    font-weight: 100;
+    font-size: 4vw;
+    letter-spacing: .05em;
+    font-weight: light;
+    line-height: 1em;
+    padding: 5px;
 }
 
-.navbar-right {
-  float: right;
-  margin-right: 10px;
-  width: 20%;
+.navlinkmobile:hover {
+    color: white;
 }
 
-.navbar-left > .navlink {
-    margin-left: 20px;
+#trailtimelogo-mobile {
+    max-width: 97vw;
 }
 
 
 
-
-@media  (min-width: 768px) {
-    body {
-        background-color: #f2f2f2;
+@media screen and (min-width: 767px) {
+    .navbarMobile {
+        display: none;
     }
 
-    .navlinks {
-        margin-top: -42px;
-    }
-
-    .navlinks li:nth-child(1), .nav li:nth-child(2) {
-        float: left;
-    }
-
-    .navlinks li:nth-child(3), .nav li:nth-child(4) {
-        float: right;
-    }
-}
-
-//////////////////////////////
-*/
-
-
-
-.navbar {
+.navbarWide {
+    display: block;
     background-image: url('./images/dirtsplash.svg');
     width: 100%;
     height: 120px;
@@ -159,6 +85,17 @@ li a:active {
 
 
 /*View, Add, Logout links*/
+.navlink {
+    text-decoration: none;
+    color: black;
+    font-family: intro, montserrat, sans-serif;
+    font-weight: 100;
+    font-size: 16px;
+    letter-spacing: .05em;
+    font-weight: light;
+    line-height: 1em;
+}
+
 .navlink:hover{
     filter: brightness(0) invert(1);
 }
@@ -203,6 +140,7 @@ li a:active {
 
 .leftIcons {
     width: 25%;
+    display: inline;
 }
 .rightIcons {
     object-fit: contain;
@@ -221,6 +159,7 @@ li a:active {
 @media  (min-width: 768px) {
 }
 
+}
 
 
 /*

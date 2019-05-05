@@ -20,7 +20,7 @@ class App extends Component {
             <Route exact path="/" component={HomePage} />
           </Switch>
           <Route path="/(.+)" render={() => ( //regular expression so navbar isn't on home page above
-            <div>
+            <React.Fragment>
               <NavBar />
               <div className="main">
                 <Switch>
@@ -33,7 +33,7 @@ class App extends Component {
                 </Switch>
               </div>
               <Footer />
-            </div>
+            </React.Fragment>
           )}
           />
         </div>

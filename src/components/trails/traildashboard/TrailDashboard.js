@@ -6,27 +6,28 @@ import { getTrails } from '../trailActions';
 
 export class TrailDashboard extends Component {
     componentDidMount() {
-        if(this.props.auth.jwt !== null){
-        this.props.getTrails({
-            jwt: this.props.auth.jwt//this comes from mapStateToProps below
-        });}
+        if (this.props.auth.jwt !== null) {
+            this.props.getTrails({
+                jwt: this.props.auth.jwt//this comes from mapStateToProps below
+            });
+        }
     }
 
     render() {
         const { trails, auth } = this.props;//these come from mapStateToProps below
         return (
-            <div>
+            <React.Fragment>
                 {/*ternary operator - if jwt not there then login, otherwise continue to show trails*/
-                (this.props.auth.jwt === null) ?
-                <Link to='/login'><h2>Log in to view trails > </h2></Link>
-                :    
-                <div>    
-                <TrailList /*traildashboard and traillist do the same thing pretty much but kept both in case end up doing more things in the future with a dashboard*/
-                    trails={trails} auth={auth}
-                /><br /><br />
-                </div>
+                    (this.props.auth.jwt === null) ?
+                        <Link to='/login'><h2>Log in to view trails > </h2></Link>
+                        :
+                        <React.Fragment>
+                            <TrailList /*traildashboard and traillist do the same thing pretty much but kept both in case end up doing more things in the future with a dashboard*/
+                                trails={trails} auth={auth}
+                            /><br /><br />
+                        </React.Fragment>
                 }
-            </div>
+            </React.Fragment>
         );
     }
 }

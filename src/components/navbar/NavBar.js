@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './index.css';
+import './navbar.css';
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import { logout } from '../auth/authActions';
@@ -35,10 +35,35 @@ export class NavBar extends React.Component {
         //LOGGED IN LINKS
         const authLinks = this.props.isLoggedIn ? (
             <React.Fragment>
-                <div className="navbar">
+                <div className="navbarMobile">
+                    <div className="navbar-top-mobile">
+                        <NavLink className="navlinkmobile" to="/trails">View Trails</NavLink>
+                        <NavLink className="navlinkmobile" to="/create">Add Trail</NavLink>
+                        <NavLink className="navlinkmobile" to="/" onClick={this.logout.bind(this)}>Log Out</NavLink>
+                    </div>
+                    <div>
+                        <NavLink id="trailtimelogo-mobile" to="/"><img id="trailtimelogo-mobile" src={logo} alt="logo" /></NavLink>
+                    </div>
+                </div>
+
+                <div className="navbarWide">
                     <div className="navbar-left col-4nav">
-                        <NavLink className="navlink" to="/trails"><img id="view" className="leftIcons" src={viewtrailicon} alt="View List of Trails" /></NavLink>
-                        <NavLink className="navlink" to="/create"><img id="add" className="leftIcons" src={addtrailicon} alt="Add a Trail" /></NavLink>
+                        <NavLink className="navlink" to="/trails">View Trails</NavLink>
+                        <NavLink className="navlink" to="/create">Add Trail</NavLink>
+                    </div>
+                    <div className="navbar-middle col-4nav">
+                        <NavLink id="trailtimelogo" to="/"><img className="middleIcons" src={logo} alt="logo" /></NavLink>
+                    </div>
+                    <div className="navbar-right col-4nav">
+                        <NavLink className="navlinkmobile" to="/" onClick={this.logout.bind(this)}>Log Out</NavLink>
+                    </div>
+                    <br /><br /><br />
+                </div>
+                {/*
+                <div className="navbarWide">
+                    <div className="navbar-left col-4nav">
+                        <NavLink className="navlink" to="/trails"><img id="view" className="leftIcons" src={viewtrailicon} alt="View List of Trails" />View Trails</NavLink>
+                        <NavLink className="navlink" to="/create"><img id="add" className="leftIcons" src={addtrailicon} alt="Add a Trail" />Add Trail</NavLink>
                     </div>
                     <div className="navbar-middle col-4nav">
                         <NavLink id="trailtimelogo" to="/"><img className="middleIcons" src={logo} alt="logo" /></NavLink>
@@ -46,16 +71,18 @@ export class NavBar extends React.Component {
                     <div className="navbar-right col-4nav">
                         <NavLink className="navlink" to="/" onClick={this.logout.bind(this)}><img className="rightIcons" id="logout" src={logouticon} alt="Log Out" /></NavLink>
                     </div>
-                </div><br /><br /><br />
+                    <br /><br /><br />
+                </div>
+                */}
             </React.Fragment>
         ) : null;
 
         return (
-            <div>
+            <React.Fragment>
                 {defaultLinks}
                 {authLinks}
                 <br />
-            </div>
+            </React.Fragment>
         );
     }
 }
