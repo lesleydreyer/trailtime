@@ -1,13 +1,3 @@
-/*body, html {
-  height: 100%;
-}
-
-header {
-  top: 0;
-  text-align: center;
-  display: block;
-}*/
-
 body {
   padding-top: 0px;
 }
@@ -58,7 +48,7 @@ body {
   margin: 0 auto;
 }
 
-.loginbtn {
+.logInBtn {
   background-color: #3B2974;
   color: white;
   padding: 10px;
@@ -85,156 +75,83 @@ body {
     font-size: .8em;
 }
 
-.infoContainerWideScreen{
-    display: none;
-}
-
 .sideImage {
   display: none;
 }
 
-#trailTimeLogoHomePage2 {
-  display: none;
-}
 
 
 @media screen and (min-width: 950px) and (orientation : landscape) {
+  
+  .homeBody {
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .bg {
+    background-position-y: 75%;
+  }
 
-    .homeBody {
-        margin: 0 auto;
-        position: relative;
-    }
-.bg {
-  background-position-y: 75%;
+
+  .infoText {
+    width: 50vw;
+  }
+
+  .logInBtn {
+    background-color: #3B2974;
+    color: white;
+    padding: 10px;
+    font-family: intro, 'Covered By Your Grace', cursive;
+    line-height: 1.1em;
+    font-weight: lighter;
+    font-size: 2.5vw;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .sideImage {
+    z-index: 1;
+    position: absolute;
+    border: 5px solid white;
+    border-radius: 4px;
+    width: 20%;
+    display: block;
+  }
+  
+  .img1L {
+    top: 2%;
+    left: 1%;
+    transform: rotate(-2deg);
+  }
+  
+  .img2L {
+    top: 25%;
+    left: 4%;
+    transform: rotate(5deg);
+    width: 24%;
+  }
+
+  .img3L {
+    top: 50%;
+    left: 1%;
+    transform: rotate(2deg);
+  }
+  
+  .img1R {
+    top: 2%;
+    right: 1%;
+    transform: rotate(3deg);
+  }
+  
+  .img2R {
+    top: 25%;
+    right: 4%;
+    transform: rotate(-1deg);
+  }
+  
+  .img3R {
+    top: 50%;
+    right: 1%;
+    transform: rotate(-4deg);
+  }  
 }
-
-
-    .infoText {
-      width: 50vw;
-    }
-
-    .loginbtn {
-        background-color: #3B2974;
-        color: white;
-        padding: 10px;
-        font-family: intro, 'Covered By Your Grace', cursive;
-        line-height: 1.1em;
-        font-weight: lighter;
-        font-size: 2.5vw;
-        border: none;
-        cursor: pointer;
-    }
-    .sideImage {
-      z-index: 1;
-      position: absolute;
-      border: 5px solid white;
-      border-radius: 4px;
-      width: 20%;
-      display: block;
-    }
-    .img1L {
-      top: 2%;
-      left: 1%;
-      transform: rotate(-2deg);
-    }
-    .img2L {
-      top: 25%;
-      left: 4%;
-      transform: rotate(5deg);
-    }
-
-    .img3L {
-      top: 50%;
-      left: 1%;
-      transform: rotate(2deg);
-    }
-    .img1R {
-      top: 2%;
-      right: 1%;
-      transform: rotate(3deg);
-    }
-    .img2R {
-      top: 25%;
-      right: 4%;
-      transform: rotate(-1deg);
-    }
-    .img3R {
-      top: 50%;
-      right: 1%;
-      transform: rotate(-4deg);
-    }
-    
-}
-
-/*
-@media screen and (min-width: 767px) and (orientation : landscape) {
-    body {
-        background-color: navy;
-    }
-    .bg {
-        height: 90vh; 
-        background-size: cover;
-        margin: 0 auto;
-    }
-    .infoContainer {
-    display: none; 
-    }
-
-
-    .infoContainerWideScreen {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: inline;
-        max-width: 950px;
-        width: 500px;
-        height: 95vh;
-    }
-
-    .infoTextWideScreen {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;        
-        background-color: #dec235;
-        padding: 20px;
-        background-image: url("./images/green-dust-and-scratches.png");
-        font-weight: 500;
-        line-height: 1.4em;
-        font-size: 1.2em;
-        height: 60vh;
-        width: 300px;
-    }
-
-    .loginbtn {
-        background-color: #3B2974;
-        color: white;
-        padding: 10px;
-        font-family: intro, 'Covered By Your Grace', cursive;
-        line-height: 1.1em;
-        font-weight: lighter;
-        font-size: 2.5vw;
-        border: none;
-        cursor: pointer;
-    }
-    .homeimg1 {
-      z-index: 1;
-      position: absolute;
-      top: 0px;
-      left: -20px;
-      border: 5px solid white;
-      border-radius: 4px;
-      width: 25vw;
-      transform: rotate(-2deg);
-    }
-    .homeimg2 {
-      z-index: 1;
-      position: absolute;
-      bottom: -20px;
-      right: -20px;
-      border: 5px solid white;
-      border-radius: 4px;
-      width: 400px;
-      transform: rotate(-2deg);
-    }
-    
-}*/

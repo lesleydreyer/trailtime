@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { HomePage } from './HomePage';
 
-let wrap;
 
 describe('Home Page', () => {
     let wrap;
@@ -12,9 +11,10 @@ describe('Home Page', () => {
         expect(wrap.exists()).toBe(true);
     });
 
-    test('', () => {
-        //expect(wrap.find('div.bg')).toHaveLength(1);
-        expect(wrap.find('div.bg').length).toEqual(1);
-        //expect(wrap.find('header.banner').length).toEqual(1);
+    test('renders info', () => {
+        expect(wrap.find('div.homeBody').length).toEqual(1);
+        expect(wrap.find('img#trailTimeLogoHomePage').length).toEqual(1);
+        expect(wrap.find('div.infoText').length).toEqual(1);
+        expect(wrap.find('button.logInBtn').length).toEqual(1);
     })
 })
