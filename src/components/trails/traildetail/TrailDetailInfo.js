@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './index.css';
+import './traildetail.css';
 import '../../app/common/floatgrid.css';
 import fourpeaks from './fourpeaks.jpg'
 export class TrailDetailInfo extends React.Component {
@@ -33,8 +33,8 @@ export class TrailDetailInfo extends React.Component {
 
         return (
             <React.Fragment>
-                <span className="imgfeature">
-                    <img src={imageUrl} alt={trail.trailName || "jeeping on a random trail"} />
+                <span className="imgfeature2">
+                    <img className="imgfeature" src={imageUrl} alt={trail.trailName || "jeeping on a random trail"} />
                 </span>
                 <div className="detailpageinfo">
                     <h1>{trail.trailName}</h1>

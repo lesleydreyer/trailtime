@@ -1,4 +1,4 @@
-.navbarWide {
+.navbar-desktop {
     display: none;
 }
 
@@ -8,7 +8,7 @@
     padding-bottom: 10px;
 }
 
-.navlinkmobile {
+.navlink-mobile {
     margin: 0 auto;
     text-decoration: none;
     color: black;
@@ -18,10 +18,10 @@
     letter-spacing: .05em;
     font-weight: light;
     line-height: 1em;
-    padding: 5px;
+    padding: 7px;
 }
 
-.navlinkmobile:hover {
+.navlink-mobile:hover {
     color: white;
 }
 
@@ -29,18 +29,11 @@
     max-width: 97vw;
 }
 
-
-
-@media screen and (min-width: 767px) {
-    .navbarMobile {
-        display: none;
-    }
-
-.navbarWide {
+.navbar-loggedout {
     display: block;
     background-image: url('./images/dirtsplash.svg');
     width: 100%;
-    height: 120px;
+    height: 130px;
     min-height: auto;
     background-position: top;
     background-size: contain;
@@ -50,116 +43,123 @@
     z-index: 100;
 }
 
+.loggedout-logo {
+    max-width: 90vw;
+}
 
-
-body {
-    padding-top: 160px;
+@media screen and (min-width: 568px) {
+    .loggedout-logo {
+        max-width: 60vw;
+    }
 }
 
 
-/*Log in sign in links*/
-li a {
-    color: #3B2974;
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
+@media screen and (min-width: 768px) {
+    .navbar-mobile {
+        display: none;
+    }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
+    .loggedout-logo {
+        max-width: 38vw;
+    }
 
-li a:hover {
-    color: #3B2974;
-}
+    .navbar-desktop {
+        display: block;
+        background-image: url('./images/dirtsplash.svg');
+        width: 100%;
+        height: 130px;
+        min-height: auto;
+        background-position: top;
+        background-size: contain;
+        background-repeat: repeat-x;
+        position: fixed;
+        top: 0px;
+        z-index: 100;
+    }
 
-li a:active {
-    background-color: gray;
-}
+ 
 
+    /*View, Add, Logout links*/
+    .navlink {
+        text-decoration: none;
+        color: black;
+        font-family: intro, montserrat, sans-serif;
+        font-weight: 100;
+        font-size: 16px;
+        letter-spacing: .05em;
+        font-weight: light;
+        line-height: 1em;
+    }
 
-/*View, Add, Logout links*/
-.navlink {
-    text-decoration: none;
-    color: black;
-    font-family: intro, montserrat, sans-serif;
-    font-weight: 100;
-    font-size: 16px;
-    letter-spacing: .05em;
-    font-weight: light;
-    line-height: 1em;
-}
+    .navlink:hover{
+        filter: brightness(0) invert(1);
+    }
 
-.navlink:hover{
-    filter: brightness(0) invert(1);
-}
+    .navbar-left {
+        float: left;
+        padding-top: 10px;
+        width: 30vw;
+    }
 
-.navbar-left {
-  float: left;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  width: 30vw;
-  /*background-color: aquamarine;*/
-}
+    .navbar-left > .navlink {
+        margin-left: 1vw;
+    }
 
-.navbar-left > .navlink {
-    margin-left: 20px;
-}
+    .navbar-middle {
+        margin: 0 auto;
+        width: 40vw;
+    } 
 
-.navbar-middle {
-    margin: 0 auto;
-    width: 40vw;
-    /*object-fit: contain;
-    background-color: cornsilk;*/
-}
+    .navbar-right {
+        float: right;
+        padding-top: 10px;
+        width: 25vw;
+    }
 
+    .navbar-right > .navlink {
+        margin-right: 3vw;
+    }
 
-.navbar-right {
-  float: right;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  max-width: 25vw;
-  /*background-color: pink;*/
-}
+    .middleIcons {
+        max-width: 38vw;
+    }
 
-
-.navbar-right > .navlink {
-    margin-right: 10px;
-}
-
-.middleIcons {
-    width: 100%;
-    object-fit: contain;
-}
-
-.leftIcons {
-    width: 25%;
-    display: inline;
-}
-.rightIcons {
-    object-fit: contain;
-    max-width: 70%;
-}
+    .leftIcons {
+        max-width: 12vw;
+        display: inline;
+    }
+    .rightIcons {
+        max-width: 15vw;
+        max-height: 120px;
+        margin-top: -20px;
+    }
 
 
-.col-4nav:nth-of-type(2n+1) {
-    clear: none;
-}
-   
-.col-4nav:nth-of-type(3n+1) {
-    clear: left;
-}
+    .col-4nav:nth-of-type(2n+1) {
+        clear: none;
+    }
+    
+    .col-4nav:nth-of-type(3n+1) {
+        clear: left;
+    }
 
 @media  (min-width: 768px) {
 }
 
 }
+
+/*
+css
+.desktop-only {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .desktop-only {
+    display: inline-block;
+  }
+}
+*/
 
 
 /*

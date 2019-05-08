@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import fourpeaks from '../traildetail/fourpeaks.jpg'
-import './index.css';
+import './traillist.css';
 import '../../app/common/floatgrid.css';
 
 library.add(faPencilAlt);

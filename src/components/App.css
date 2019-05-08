@@ -6,10 +6,3 @@
 body {
   font-family: montserrat;
 }
-
-hr {
-  height: 6px;
-	background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
-  border: 1px;
-  width: 20vw;
-}

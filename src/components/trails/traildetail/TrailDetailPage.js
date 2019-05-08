@@ -1,5 +1,5 @@
 import React from 'react';
-import './index.css';
+import './traildetail.css';
 import { connect } from 'react-redux';
 import TrailDetailInfo from './TrailDetailInfo';
 import { getTrail, deleteTrail } from '../trailActions';
