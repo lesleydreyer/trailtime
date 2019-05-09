@@ -1,6 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import './index.css';
+import './trailcreateform.css';
 
 //application logic - code the library/framework provides
 export const TrailCreateForm = (props) => {

@@ -1,0 +1,47 @@
+button {
+    background-color: #3B2974;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 10px;
+    font-family: montserrat, bourbon, 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    color: gold;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, textarea {
+    margin-bottom: 20px;
+    margin-top: 2px;
+    padding: 5px;
+    text-align: center;
+    width: 70vw;
+}
+
+#trail-create-form {
+    margin-top: -80px;
+}
+
+@media screen and (min-width: 768px) {
+    #trail-create-form {
+        margin-top: 100px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    
+    #trail-create-form {
+        margin-top: 140px;
+    }
+}

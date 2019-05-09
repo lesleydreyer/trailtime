@@ -22,7 +22,7 @@ export class TrailListItem extends Component {
     }
 
     render() {
-        const { trail } = this.props;//const { trail, deleteTrail } = this.props;
+        const { trail } = this.props;
         const imageUrl = trail.trailImage || fourpeaks;
         const divStyle = {
             WebkitTransition: 'all',

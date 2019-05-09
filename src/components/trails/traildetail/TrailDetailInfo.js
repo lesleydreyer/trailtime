@@ -32,10 +32,8 @@ export class TrailDetailInfo extends React.Component {
         const imageUrl = trail.trailImage || fourpeaks;
 
         return (
-            <React.Fragment>
-                <span className="imgfeature2">
-                    <img className="imgfeature" src={imageUrl} alt={trail.trailName || "jeeping on a random trail"} />
-                </span>
+            <div className="info-container">
+                <img className="imgfeature" src={imageUrl} alt={trail.trailName || "jeeping on a random trail"} />
                 <div className="detailpageinfo">
                     <h1>{trail.trailName}</h1>
                     <p id="description">{trail.trailDescription}</p>
@@ -48,7 +46,7 @@ export class TrailDetailInfo extends React.Component {
                     {/*if user created trail give edit/delete buttons, if not have email creator */
                         this.state.loggedInUserCreatedTrail ? userCreatedTrail : userDidNotCreateTrail}
                 </div>
-            </React.Fragment >
+            </div >
         )
     }
 }

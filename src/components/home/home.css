@@ -14,7 +14,7 @@ body {
 #trailTimeLogoHomePage {
     display: block;
     left: 50vw;
-    max-width:90%;
+    max-width:90vw;
     width: auto;
     margin: auto;
 }
@@ -24,21 +24,6 @@ body {
     padding: 20px;
     border-top: 5px solid rgba(255,255,255,.2);
     background-image: url("./images/green-dust-and-scratches.png");
-    /*SOME OTHER IDEAS TO PLAY WITH 
-    background-color: #dec235;
-    background-image: url("https://www.transparenttextures.com/patterns/purty-wood.png");
-    background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
-    background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-    background-image: url("https://www.transparenttextures.com/patterns/low-contrast-linen.png");
-    background-image: url("https://www.transparenttextures.com/patterns/green-dust-and-scratches.png");
-    background-image: url("https://www.transparenttextures.com/patterns/smooth-wall-dark.png");
-    background-color: #d1b44d;
-    background-image: url("https://www.transparenttextures.com/patterns/textured-stripes.png");
-    background-image: url("https://www.transparenttextures.com/patterns/tex2res5.png");
-    background-image: url("https://www.transparenttextures.com/patterns/twinkle-twinkle.png");
-    background-image: url("https://www.transparenttextures.com/patterns/wall-4-light.png");
-  -webkit-mask-image: url("http://support.nature.org/images/earth/assets/grit.png");
-  mask-image: url("http://support.nature.org/images/earth/assets/grit.png");*/
 }
 
 .infoText {
@@ -55,9 +40,10 @@ body {
   font-family: intro, 'Covered By Your Grace', cursive;
   line-height: 1.1em;
   font-weight: lighter;
-  font-size: 5vw;
+  font-size: 4.5vw;
   border: none;
   cursor: pointer;
+  margin-top: -15px;
 }
 
 .footerHomePage {
@@ -75,13 +61,13 @@ body {
     font-size: .8em;
 }
 
-.sideImage {
+.sideImage, .leftcollage, .rightcollage {
   display: none;
 }
 
 
 
-@media screen and (min-width: 950px) and (orientation : landscape) {
+@media screen and (min-width: 568px) and (orientation: landscape) {
   
   .homeBody {
     margin: 0 auto;
@@ -92,66 +78,85 @@ body {
     background-position-y: 75%;
   }
 
-
   .infoText {
-    width: 50vw;
+    width: 90vw;
   }
 
   .logInBtn {
-    background-color: #3B2974;
-    color: white;
-    padding: 10px;
-    font-family: intro, 'Covered By Your Grace', cursive;
-    line-height: 1.1em;
-    font-weight: lighter;
-    font-size: 2.5vw;
-    border: none;
-    cursor: pointer;
+    font-size: 2vw;
   }
-  
-  .sideImage {
+    
+  .leftcollage, .rightcollage {
     z-index: 1;
     position: absolute;
-    border: 5px solid white;
-    border-radius: 4px;
-    width: 20%;
+    max-height: 60vh;
     display: block;
   }
-  
-  .img1L {
-    top: 2%;
-    left: 1%;
-    transform: rotate(-2deg);
+    
+  .leftcollage {
+    top: 7%;
+    left: -1%;
   }
-  
-  .img2L {
-    top: 25%;
-    left: 4%;
-    transform: rotate(5deg);
-    width: 24%;
+  .rightcollage {
+    top: 7%;
+    right: 1.25%;
+  }
+    #trailTimeLogoHomePage {
+    max-width: 50vw;
+  }
+  .logInBtn {
+    margin-top: 0px;
+    font-size: 2.5vw;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+    .infoContainer {
+    font-size: .8em;
+    padding: 8px;
   }
 
-  .img3L {
-    top: 50%;
-    left: 1%;
-    transform: rotate(2deg);
+}
+
+
+@media screen and (min-width: 950px) and (max-width: 1023px) and (orientation: landscape) {
+   
+  .bg {
+    background-position-y: 75%;
+  }
+}
+
+
+@media screen and (min-width: 1024px) and (orientation: landscape) {
+ 
+  .homeBody {
+    margin: 0 auto;
+    position: relative;
   }
   
-  .img1R {
-    top: 2%;
-    right: 1%;
-    transform: rotate(3deg);
+  .bg {
+    background-position-y: 75%;
   }
-  
-  .img2R {
-    top: 25%;
-    right: 4%;
-    transform: rotate(-1deg);
+
+  .infoContainer {
+    font-size: 1.1em;
   }
-  
-  .img3R {
-    top: 50%;
-    right: 1%;
-    transform: rotate(-4deg);
-  }  
+
+  .logInBtn {
+    font-size: 2vw;
+  }
+    
+  .leftcollage, .rightcollage {
+    height: 65%;
+    max-height: 80vh;
+  }
+    
+  .leftcollage {
+    top: 5%;
+    left: -1%;
+  }
+
+  .rightcollage {
+    top: 5%;
+    right: -1.5%;
+  }
 }

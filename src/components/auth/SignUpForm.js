@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm } from 'redux-form';
-import './index.css';
+import './auth.css';
 
 export const SignUpForm = (props) => {
     return (

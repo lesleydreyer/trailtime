@@ -1,0 +1,56 @@
+button {
+    background-color: #3B2974;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 10px;
+    font-family: montserrat, bourbon, 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+button:hover {
+    color: gold;
+}
+
+fieldset {
+    width: 80vw;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    padding: 20px;
+    border: none;
+}
+
+legend {
+    visibility: hidden;
+}
+
+
+input, textarea {
+    margin-bottom: 20px;
+    margin-top: 2px;
+    padding: 5px;
+    text-align: center;
+    width: 70vw;
+}
+
+#signup-form, #login-form {
+    margin-top: -50px;
+}
+
+@media screen and (min-width: 360px) {
+    #signup-form, #login-form{
+        margin-top: -40px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #signup-form, #login-form {
+        margin-top: 0px;
+    }
+}

@@ -1,7 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './navbar.css';
-import '../app/common/floatgrid.css'
 import { connect } from "react-redux";
 import { withRouter } from 'react-router-dom';
 import { logout } from '../auth/authActions';
@@ -9,6 +7,8 @@ import logo from '../home/images/logo2.svg';
 import addtrailicon from './icons/OldSvgImageFiles/addtrailiconwtext.svg';
 import viewtrailicon from './icons/OldSvgImageFiles/viewtrailsiconwtext.svg';
 import logouticon from './icons/OldSvgImageFiles/logouticon.svg';
+import './navbar.css';
+import '../app/common/floatgrid.css';
 
 export class NavBar extends React.Component {
     logout = () => {

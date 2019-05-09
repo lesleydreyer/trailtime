@@ -1,6 +1,4 @@
 import React from 'react';
-import './home.css';
-import logo from './images/logo2.svg';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import jeepflagstaff from './images/jeepflagstaff.jpg';
@@ -9,6 +7,10 @@ import moxie2 from './images/Moxie2.jpg';
 import beachtrail from './images/beachtrail.jpg';
 import beachtrail2 from './images/beachtrail2.jpg';
 import coloradotrail from './images/coloradotrail.jpg';
+import leftcollage from './images/left-collage.png';
+import rightcollage from './images/right-collage.png';
+import './home.css';
+import logo from './images/logo2.svg';
 
 
 export const HomePage = (props) => {
@@ -20,12 +22,8 @@ export const HomePage = (props) => {
     return (
         <React.Fragment>
             <div className='homeBody'>
-                <img className="sideImage img1L" src={beachtrail} alt="beach trail pic" />
-                <img className="sideImage img2L" src={coloradotrail} alt="Colorado trail pic" />
-                <img className="sideImage img3L" src={moxie2} alt="dog in jeep pic" />
-                <img className="sideImage img1R" src={jeepflagstaff} alt="Flagstaff, AZ trail pic" />
-                <img className="sideImage img2R" src={beachtrail2} alt="beach trail pic" />
-                <img className="sideImage img3R" src={hurricaneridge} alt="Washington trail pic" />
+                <img src={leftcollage} className="leftcollage" alt="image collage" />
+                <img src={rightcollage} className="rightcollage" alt="image collage" />
                 <header role="banner" className='bg'>
                     <img id="trailTimeLogoHomePage" src={logo} alt="Trail Time Logo" />
                 </header>

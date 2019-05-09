@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-import './index.css';
+import './auth.css';
 
 export const LogInForm = (props) => {
     return (
