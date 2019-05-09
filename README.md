@@ -10,11 +10,7 @@ This is a project I created to help learn React and Redux with the help of mento
 
 ## Screenshots
 Below are a couple screenshots of the landing page, the list of trails, and trail details.
-<img src="src/components/app/read-me-screenshots/trailtimehomedesktop.png"/>
-<img src="src/components/app/read-me-screenshots/trailtimehomemobile.png"/>
-<img src="src/components/app/read-me-screenshots/trailtimelistdesktop2.png"/>
-<img src="src/components/app/read-me-screenshots/trailtimedetailsmobile.png"/>
-<img src="src/components/app/read-me-screenshots/trailtimedetailsmobile2.png"/>
+<img src="src/components/app/read-me-screenshots/collage.png"/>
 
 
 
